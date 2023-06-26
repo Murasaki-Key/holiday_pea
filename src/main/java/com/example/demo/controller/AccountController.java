@@ -56,6 +56,9 @@ public class AccountController {
 		}
 		String names = user.get(0).getName();
 		users.setName(names);
+		
+		String name1 = users.getName();
+		m.addAttribute("names",name1);
 
 		// リダイレクト
 		return "/form";
