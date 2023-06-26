@@ -64,6 +64,15 @@ public class AccountController {
 		return "/form";
 	}
 
+	//新規登録
+	@GetMapping("/account")
+	public String create(Model model) {
+		Account account = new Account();
+
+		model.addAttribute("account", account);
+		return "addAccount";
+	}
+	
 	// 新規登録処理
 	@PostMapping("/accoont/add")
 	public String store(
@@ -78,7 +87,7 @@ public class AccountController {
 		accountRepository.save(user);
 
 		// 「/users」にGETでリクエストし直せ（リダイレクト）
-		return "redirect:/login";
+		return "redirect:/accountConfirm";
 	}
 
 }
