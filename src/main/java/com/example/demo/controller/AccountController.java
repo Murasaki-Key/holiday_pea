@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.example.demo.entity.Account;
+import com.example.demo.model.User;
 import com.example.demo.repository.AccountRepository;
 
 import jakarta.servlet.http.HttpSession;
@@ -18,9 +19,9 @@ import jakarta.servlet.http.HttpSession;
 public class AccountController {
 	@Autowired
 	HttpSession session;
-
+	
 	@Autowired
-	Account account;
+	User users;
 
 	@Autowired
 	AccountRepository accountRepository;
@@ -54,7 +55,7 @@ public class AccountController {
 			return "login";
 		}
 		String names = user.get(0).getName();
-		account.setName(names);
+		users.setName(names);
 
 		// リダイレクト
 		return "redirect:/login";

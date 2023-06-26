@@ -1,12 +1,12 @@
-CREATE DATABASE spring_holiday;
+--CREATE DATABASE spring_holiday;
 
 DROP TABLE IF EXISTS account;
 DROP TABLE IF EXISTS eat;
-DROP TABLE IF EXISTS do;
+DROP TABLE IF EXISTS act;
 
 CREATE TABLE account(
   id SERIAL PRIMARY KEY,
-  name TEXT
+  name TEXT,
   password TEXT
 );
 
@@ -18,7 +18,7 @@ CREATE TABLE eat(
 );
 
 
-CREATE TABLE do(
+CREATE TABLE act(
   id SERIAL PRIMARY KEY,
   categoryid INTEGER,
   seasonid INTEGER,
