@@ -8,11 +8,15 @@
 	<header>
 		<h1>Your Holiday</h1>
 	</header>
+
 	<main>
+		
 		<form action="/login" method="post">
-			<input type="text" name="name" placeholder="名前">
+			<input type="text" name="name" placeholder="名前"><br>
 			<input type="text" name="password" placeholder="password">
 			<button>ログイン</button>
+			
+			<br> <span th:text="${message}" style="color: red"></span>
 		</form>
 	</main>
 </body>

@@ -58,7 +58,7 @@ public class AccountController {
 		users.setName(names);
 
 		// リダイレクト
-		return "redirect:/login";
+		return "/form";
 	}
 
 	// 新規登録処理
