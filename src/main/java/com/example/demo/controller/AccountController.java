@@ -26,7 +26,7 @@ public class AccountController {
 	AccountRepository accountRepository;
 
 	// ログイン画面を表示
-	@GetMapping({ "/login", "/logout" })
+	@GetMapping("/login")
 	public String index() {
 		// セッション情報を全てクリアする
 		session.invalidate();
@@ -57,25 +57,24 @@ public class AccountController {
 		account.setName(names);
 
 		// リダイレクト
-		return "redirect:/users";
+		return "redirect:/login";
 	}
 
 	// 新規登録処理
 	@PostMapping("/accoont/add")
 	public String store(
-			@RequestParam(value = "id", defaultValue = "") Integer id,
 			@RequestParam(value = "name", defaultValue = "") String name,
 			@RequestParam(value = "password", defaultValue = "") String password,
 			Model model) {
 
 		// Userオブジェクトの生成
-		Account user = new Account(id, name, password);
+		Account user = new Account(name, password);
 
 		// userテーブルへの反映（INSERT）
 		accountRepository.save(user);
 
 		// 「/users」にGETでリクエストし直せ（リダイレクト）
-		return "redirect:/account";
+		return "redirect:/login";
 	}
 
 }

@@ -8,7 +8,7 @@ import jakarta.persistence.Table;
 import lombok.Getter;
 
 @Entity
-@Table(name = "Accounts") // 対応するテーブル名
+@Table(name = "Account") // 対応するテーブル名
 public class Account {
 
 	// フィールド
