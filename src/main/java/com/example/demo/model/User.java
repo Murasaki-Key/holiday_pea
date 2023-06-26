@@ -1,10 +1,24 @@
 package com.example.demo.model;
 
-public class User {
+import org.springframework.stereotype.Component;
+import org.springframework.web.context.annotation.SessionScope;
 
-	public void setName(String names) {
-		// TODO 自動生成されたメソッド・スタブ
+import lombok.Data;
+
+@Data
+@Component
+@SessionScope
+public class User {
+	//フィールド
+		private String name;
 		
-	}
+		//コンストラクタ
+		public User() {
+			
+		}
+
+		public User(String name) {
+			this.name = name;
+		}
 
 }
