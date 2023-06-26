@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>hopliday</title>
+</head>
+<body>
+	<header>
+		<h1>ようこそ</h1>
+	</header>
+	<main>
+		<form action="" method="post"><!--アクション未定-->
+			季節を教えてください
+			<br>
+			<input type="radio" name="season" value="1" checked>春
+			<input type="radio" name="season" value="2">夏
+			<input type="radio" name="season" value="3">秋
+			<input type="radio" name="season" value="4">冬
+			<br>
+			天気を教えてください
+			<br>
+			<input type="radio" name="weather" value="1" checked>晴れ
+			<input type="radio" name="weather" value="2">曇り
+			<input type="radio" name="weather" value="3">雨
+			<br>
+			何で移動しますか？
+			<br>
+			<input type="radio" name="vehicle" value="1" checked>徒歩
+			<input type="radio" name="vehicle" value="2">電車
+			<input type="radio" name="vehicle" value="3">車
+			<br>
+			何が食べたいですか？
+			<br>
+			<select name="food">
+				<option value="5" selected>おまかせ</option>
+				<option value="1">肉料理</option>
+				<option value="2">魚料理</option>
+				<option value="3">野菜料理</option>
+				<option value="4">異国料理</option>
+			</select>
+			<br>
+			何がしたいですか？
+			<br>
+			<select name="act">
+				<option value="5" selected>おまかせ</option>
+				<option value="1">ものづくりがしたい</option>
+				<option value="2">買い物がしたい</option>
+				<option value="3">展示を見たい</option>
+				<option value="4">自然に触れたい</option>
+			</select>
+			<br>
+			<button>予定を生成する</button>
+		</form>
+	</main>
+</body>
+</html>
