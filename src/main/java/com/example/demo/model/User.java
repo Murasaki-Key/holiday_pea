@@ -14,9 +14,8 @@ public class User {
 		private String password;
 		
 		//コンストラクタ
-		public User(String name, String password) {
-			this.name = name;
-			this.password = password;
+		public User() {
+			
 		}
 
 		public User(String name) {

@@ -42,6 +42,13 @@ public class AccountController {
 			@RequestParam(name = "name", defaultValue = "") String name,
 			@RequestParam(name = "password", defaultValue = "") String password,
 			Model m) {
+		
+		List<Account> list = accountRepository.findByNameAndPassword(name, password);
+		if (list.size() > 0) {
+			String error = "登録されていないアカウントです";
+			m.addAttribute("error", error);
+		}
+		
 		List<Account> user = accountRepository.findLikeByName(name);
 		if (user.isEmpty() == true) {
 			String error = "名前とパスワードが一致しませんでした";
@@ -55,6 +62,7 @@ public class AccountController {
 			m.addAttribute("error", error);
 			return "login";
 		}
+		
 		String names = user.get(0).getName();
 		users.setName(names);
 		
@@ -88,15 +96,20 @@ public class AccountController {
 		List<String> error = new ArrayList<>();
 
 		if (name.equals("") == true) {
-			error.add("名前は必須です");
+			error.add("名前は必須です!");
 			//	return "contactForm";
 		}
 
 		if (password.equals("") == true) {
-			error.add("パスワードは必須です");
+			error.add("パスワードは必須です!");
 			//	return "contactForm";
 		}
-
+		
+		List<Account> list = accountRepository.findByName(name);
+		if (list.size() > 0) {
+		error.add("既に同じ名前のアカウントが存在しています!");
+		}
+		
 		if (error.size() > 0) {
 			model.addAttribute("error", error);
 			
