@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>holiday</title>
+</head>
+<body>
+	<header>
+		<h1>予定</h1>
+	</header>
+	<main>
+	<form action="/result" method="post">
+		<input type="hidden" name="season"  th:value="${season}">
+		<input type="hidden" name="weather" th:value="${weather}">
+		<input type="hidden" name="vehicle" th:value="${vehicle}">
+		<input type="hidden" name="eatplan" th:value="${eatplan}">
+		<input type="hidden" name="actplan" th:value="${actplan}">
+		季節:[[${season}]]
+		<br>
+		天気:[[${weather}]]
+		<br>
+		移動:[[${vehicle}]]
+		<br>
+		食事:[[${eatplan}]]
+		<br>
+		行動:[[${actplan}]]
+		<br>
+		<input type="submit" value="決定">
+	</form>
+	</main>
+</body>
+</html>
