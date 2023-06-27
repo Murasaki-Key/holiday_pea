@@ -10,6 +10,9 @@ import com.example.demo.entity.Eat;
 
 public interface EatRepository extends JpaRepository<Eat, Integer>{
 	List <Eat> findBySeasonid(Integer seasonid);
-	@Query("select * from eat where seasonid = ?1 and categoryid = ?2")
-	List <Eat> find01(@Param("seasonid") Integer season, @Param("categoryid") Integer food);
+	@Query(
+			value="select * from act where seasonid = ?1 and categoryid = ?2",
+			nativeQuery=true
+		)
+	List <Eat> find01(@Param("seasonid") Integer season, @Param("categoryid") Integer act);
 }
