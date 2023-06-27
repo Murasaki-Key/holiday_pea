@@ -68,7 +68,6 @@ public class AccountController {
 		
 		Account account = list.get(0);
 		
-		users.setId(account.getId());
 		users.setName(account.getName());
 		
 		return "form";

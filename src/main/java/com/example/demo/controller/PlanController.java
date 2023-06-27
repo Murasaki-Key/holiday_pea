@@ -49,20 +49,20 @@ public class PlanController {
 		}else {
 			eatlist = eatRepository.find01(season, food);
 		}
-		Integer ran1 = eatlist.size() - 1;
-		Integer randomfood  = random.nextInt(ran1) + 1;//乱数生成
+		Integer ran1 = eatlist.size();
+		Integer randomfood  = random.nextInt(ran1);//乱数生成
 		String eatplan =eatlist.get(randomfood).getName();
 		
 		
 		//行動をランダムで決定する
 		List <Act> actlist = null;
-		if(food.equals(5) == true) {
+		if(act.equals(5) == true) {
 			actlist = actRepository.findBySeasonid(season);
 		}else {
 			actlist = actRepository.find01(season, act);
 		}
-		Integer ran2 = actlist.size() - 1;
-		Integer randomact  = random.nextInt(ran2) + 1;//乱数生成
+		Integer ran2 = actlist.size();
+		Integer randomact  = random.nextInt(ran2);//乱数生成
 		String actplan =actlist.get(randomact).getName();
 		
 		m.addAttribute("season", season);
@@ -74,5 +74,41 @@ public class PlanController {
 		return "confirm";
 	}
 	
-
+	@PostMapping("/result")
+	public String result(
+			@RequestParam("season") Integer season ,
+			@RequestParam("weather") Integer weather ,
+			@RequestParam("vehicle") Integer vehicle ,
+			@RequestParam("eatplan") String eatplan ,
+			@RequestParam("actplan") String actplan ,
+			Model m
+			) {
+		String message = "";
+		if(season == 1) {
+			if(weather == 1) {
+				message = "春の晴れ";
+			}
+			if(weather == 2) {
+				message = "春の曇り";
+			}
+			if(weather == 3) {
+				message = "春の雨";
+		}
+		}
+		
+		String name = users.getName();
+	
+		
+		m.addAttribute("name", name);
+    	m.addAttribute("message",message);
+		m.addAttribute("season", season);
+		m.addAttribute("weather", weather);
+		m.addAttribute("vehicle", vehicle);
+		m.addAttribute("eatplan", eatplan);
+		m.addAttribute("actplan", actplan);
+		
+		
+		return "result";
+	}
+			
 }
