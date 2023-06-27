@@ -1,13 +1,16 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<brh="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
 <title>顧客登録</title>
 </head>
-<body>
+<br>
 	<h1>顧客登録</h1>
 
-	<form action="/accounts/add" method="post">
+	<form action="/account/add" method="post">
+	
+	<span th:text="${error}" style="color: red"></span>
+
 		<table border="1">
 			<tr>
 				<th>名前</th>
@@ -25,5 +28,6 @@
 		</table>
 		<button>登録</button>
 	</form>
+
 </body>
 </html>
