@@ -67,10 +67,14 @@ public class AccountController {
 
 	//新規登録
 	@GetMapping("/account")
-	public String create(Model model) {
-		Account account = new Account();
-
-		model.addAttribute("account", account);
+	public String create(
+			@RequestParam(value = "name", defaultValue = "") String name,
+			@RequestParam(value = "password", defaultValue = "") String password,
+			Model model) {
+	
+		model.addAttribute("name" , name);
+		model.addAttribute("password" , password);
+		
 		return "addAccount";
 	}
 	
@@ -111,4 +115,10 @@ public class AccountController {
 		return "accountConfirm";
 	}
 
+	//ログイン画面へ遷移
+	
+	@PostMapping("/account/finish")
+	public String finish() {
+				return "login";
+	}
 }
