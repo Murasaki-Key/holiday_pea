@@ -30,6 +30,11 @@
 		<input type="submit" value="確認">
 	</form>
 	
+	<form action="/account" method="get">
+		<input type="hidden" name="name" th:value="${account.name}">
+		<input type="hidden" name="password" th:value="${account.password}">
+				<input type="submit" value="戻る">
+	</form>
 </body>
 
 </html>
