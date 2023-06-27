@@ -1,5 +1,6 @@
 package com.example.demo.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -43,15 +44,15 @@ public class AccountController {
 			Model m) {
 		List<Account> user = accountRepository.findLikeByName(name);
 		if (user.isEmpty() == true) {
-			String message = "名前とパスワードが一致しませんでした";
-			m.addAttribute("message", message);
+			String error = "名前とパスワードが一致しませんでした";
+			m.addAttribute("error", error);
 			return "login";
 		}
 
 		String pas = user.get(0).getPassword();
 		if (pas.equals(password) == false) {
-			String message = "名前とパスワードが一致しませんでした";
-			m.addAttribute("message", message);
+			String error = "名前とパスワードが一致しませんでした";
+			m.addAttribute("error", error);
 			return "login";
 		}
 		String names = user.get(0).getName();
@@ -64,21 +65,50 @@ public class AccountController {
 		return "/form";
 	}
 
-	// 新規登録処理
-	@PostMapping("/accoont/add")
+	//新規登録
+	@GetMapping("/account")
+	public String create(Model model) {
+		Account account = new Account();
+
+		model.addAttribute("account", account);
+		return "addAccount";
+	}
+	
+	//新規登録処理
+	@PostMapping("/account/add")
 	public String store(
 			@RequestParam(value = "name", defaultValue = "") String name,
 			@RequestParam(value = "password", defaultValue = "") String password,
 			Model model) {
 
-		// Userオブジェクトの生成
-		Account user = new Account(name, password);
+		List<String> error = new ArrayList<>();
 
-		// userテーブルへの反映（INSERT）
-		accountRepository.save(user);
+		if (name.equals("") == true) {
+			error.add("名前は必須です");
+			//	return "contactForm";
+		}
 
-		// 「/users」にGETでリクエストし直せ（リダイレクト）
-		return "redirect:/login";
+		if (password.equals("") == true) {
+			error.add("パスワードは必須です");
+			//	return "contactForm";
+		}
+
+		if (error.size() > 0) {
+			model.addAttribute("error", error);
+			
+			Account account = new Account(name, password);
+			model.addAttribute("account", account);
+			
+			return "addAccount";
+		}
+
+		Account account = new Account(name, password);
+
+		model.addAttribute("account", account);
+
+		accountRepository.save(account);
+
+		return "accountConfirm";
 	}
 
 }
