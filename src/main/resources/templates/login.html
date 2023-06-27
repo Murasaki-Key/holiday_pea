@@ -1,25 +1,26 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
+
 <head>
-<meta charset="UTF-8">
-<title>ログイン</title>
+	<meta charset="UTF-8">
+	<title>ログイン</title>
 </head>
+
 <body>
 	<header>
 		<h1>Your Holiday</h1>
 	</header>
 
 	<main>
-		
+		<br> <span th:text="${errorLog}" style="color: red"></span>
 		<form action="/login" method="post">
 			<input type="text" name="name" placeholder="名前"><br>
 			<input type="text" name="password" placeholder="password">
 			<button>ログイン</button>
-			
-			<br> <span th:text="${error}" style="color: red"></span>
+
 		</form>
 	</main>
-	
-		<a href="/account" style="padding-left: 10px;">新規登録</a>
+	<a href="/account" style="padding-left: 10px;">新規登録</a>
 </body>
+
 </html>

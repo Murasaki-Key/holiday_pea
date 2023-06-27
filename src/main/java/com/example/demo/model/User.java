@@ -10,16 +10,7 @@ import lombok.Data;
 @SessionScope
 public class User {
 	//フィールド
+		private Integer id;
 		private String name;
-		private String password;
-		
-		//コンストラクタ
-		public User() {
-			
-		}
-
-		public User(String name) {
-			this.name = name;
-		}
 
 }

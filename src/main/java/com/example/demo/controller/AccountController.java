@@ -43,34 +43,35 @@ public class AccountController {
 			@RequestParam(name = "password", defaultValue = "") String password,
 			Model m) {
 		
-		List<Account> list = accountRepository.findByNameAndPassword(name, password);
-		if (list.size() > 0) {
-			String error = "登録されていないアカウントです";
-			m.addAttribute("error", error);
+		List<String> errorLog = new ArrayList<>();
+		
+		if (name == null || name.length() == 0) {
+			errorLog.add("名前を入力してください");
+		}
+		if (password == null || password.length() == 0) {
+			errorLog.add("パスワードを入力してください");
 		}
 		
-		List<Account> user = accountRepository.findLikeByName(name);
-		if (user.isEmpty() == true) {
-			String error = "名前とパスワードが一致しませんでした";
-			m.addAttribute("error", error);
+		List<Account> list = null;
+		
+		if (name.length() != 0 && password.length() != 0) {
+			list = accountRepository.findByNameAndPassword(name, password);
+			if (list.size() <= 0){
+				errorLog.add("名前とパスワードが一致しません");
+			}
+		}
+		
+		if (errorLog.size() > 0) {
+			m.addAttribute("errorLog", errorLog);
 			return "login";
 		}
-
-		String pas = user.get(0).getPassword();
-		if (pas.equals(password) == false) {
-			String error = "名前とパスワードが一致しませんでした";
-			m.addAttribute("error", error);
-			return "login";
-		}
 		
-		String names = user.get(0).getName();
-		users.setName(names);
+		Account account = list.get(0);
 		
-		String name1 = users.getName();
-		m.addAttribute("names",name1);
-
-		// リダイレクト
-		return "/form";
+		users.setId(account.getId());
+		users.setName(account.getName());
+		
+		return "form";
 	}
 
 	//新規登録
@@ -120,9 +121,7 @@ public class AccountController {
 		}
 
 		Account account = new Account(name, password);
-
 		model.addAttribute("account", account);
-
 		accountRepository.save(account);
 
 		return "accountConfirm";
