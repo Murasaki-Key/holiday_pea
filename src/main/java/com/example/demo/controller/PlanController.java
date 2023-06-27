@@ -43,56 +43,35 @@ public class PlanController {
 		Random random = new Random();
 		
 		//食べ物をランダムで決定する
-		List <Eat> eatlist = eatRepository.findBySeasonid(season);//季節で絞り込む
-		
-		if(food.equals(5)) {
-			
+		List <Eat> eatlist = null;
+		if(food.equals(5) == true) {
+			eatlist = eatRepository.findBySeasonid(season);
 		}else {
-			
-		if(food.equals(1)) {
-			
+			eatlist = eatRepository.find01(season, food);
 		}
-		if(food.equals(2)) {
-			
-		}
-		if(food.equals(3)) {
-			
-		}
-		if(food.equals(4)) {
-			
-		}
-		}
+		Integer ran1 = eatlist.size() - 1;
+		Integer randomfood  = random.nextInt(ran1) + 1;//乱数生成
+		String eatplan =eatlist.get(randomfood).getName();
 		
-		//乱数生成
-		Integer randomfood  = random.nextInt(19) + 1;
-			
-	
 		
 		//行動をランダムで決定する
-		List <Act> actlist = actRepository.findBySeasonid(season);//季節で絞り込む
-		
-		if(act.equals(5)){
-			
+		List <Act> actlist = null;
+		if(food.equals(5) == true) {
+			actlist = actRepository.findBySeasonid(season);
 		}else {
-			
-		if(act.equals(1)) {
-			
+			actlist = actRepository.find01(season, act);
 		}
-		if(act.equals(2)) {
-			
-		}
-		if(act.equals(3)) {
-			
-		}
-		if(act.equals(4)) {
-			
-		}
-		}
+		Integer ran2 = actlist.size() - 1;
+		Integer randomact  = random.nextInt(ran2) + 1;//乱数生成
+		String actplan =actlist.get(randomact).getName();
 		
-		//乱数生成
-		Integer randomact  = random.nextInt(19) + 1;
+		m.addAttribute("season", season);
+		m.addAttribute("weather", weather);
+		m.addAttribute("vehicle", vehicle);
+		m.addAttribute("eatplan", eatplan);
+		m.addAttribute("actplan", actplan);
 		
-		return "";
+		return "confirm";
 	}
 	
 
