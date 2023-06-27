@@ -9,7 +9,7 @@ import lombok.Data;
 @Component
 @SessionScope
 public class User {
-	//フィールド
+            //フィールド
 			private String name;
 			
 			//コンストラクタ
