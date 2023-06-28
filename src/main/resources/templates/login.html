@@ -5,8 +5,10 @@
 	<meta charset="UTF-8">
 	<title>ログイン</title>
 </head>
+<link rel="stylesheet" type="text/css" href="/css/style.css">
 
-<body>
+<!--<body background="/images/home.jpg">-->
+	
 	<header>
 		<h1>Your Holiday</h1>
 	</header>
@@ -15,7 +17,7 @@
 		<br> <span th:text="${errorLog}" style="color: red"></span>
 		<form action="/login" method="post">
 			<input type="text" name="name" placeholder="名前"><br>
-			<input type="text" name="password" placeholder="password">
+			<input type="text" name="password" placeholder="password"><br>
 			<button>ログイン</button>
 
 		</form>
