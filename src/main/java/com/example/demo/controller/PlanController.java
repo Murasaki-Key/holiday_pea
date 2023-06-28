@@ -84,17 +84,6 @@ public class PlanController {
 			Model m
 			) {
 		String message = "";
-		if(season == 1) {
-			if(weather == 1) {
-				message = "春の晴れ";
-			}
-			if(weather == 2) {
-				message = "春の曇り";
-			}
-			if(weather == 3) {
-				message = "春の雨";
-		}
-		}
 		
 		String name = users.getName();
 	
