@@ -13,14 +13,16 @@ CREATE TABLE account(
 CREATE TABLE eat(
   id SERIAL PRIMARY KEY,
   categoryid INTEGER,
+  subcategoryid INTEGER,
   seasonid INTEGER,
   name TEXT
 );
 
-
 CREATE TABLE act(
   id SERIAL PRIMARY KEY,
   categoryid INTEGER,
+  vehicleid INTEGER,
+  weatherid INTEGER,
   seasonid INTEGER,
   name TEXT
 );
