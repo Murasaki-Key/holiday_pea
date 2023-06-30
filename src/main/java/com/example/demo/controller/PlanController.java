@@ -84,6 +84,8 @@ public class PlanController {
 		m.addAttribute("season", season);
 		m.addAttribute("weather", weather);
 		m.addAttribute("vehicle", vehicle);
+		m.addAttribute("food", food);
+		m.addAttribute("act", act);
 		m.addAttribute("eatplan", eatplan);
 		m.addAttribute("actplan", actplan);
 		
@@ -114,6 +116,11 @@ public class PlanController {
 		
 		
 		return "result";
+	}
+	
+	@PostMapping("/replan")
+	public String replan() {
+		return "form";
 	}
 			
 }
