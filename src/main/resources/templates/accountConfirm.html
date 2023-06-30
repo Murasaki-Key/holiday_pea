@@ -1,6 +1,5 @@
-
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 
 <head>
 	<meta charset="UTF-8">
@@ -17,7 +16,7 @@
 	</style>
 </head>
 <link rel="stylesheet" type="text/css" href="/css1/style.css">
-<body>
+<main>
 	<form action="/account/finish" method="post">
 		<input type="hidden" name="name" th:value="${account.name}">
 		<input type="hidden" name="password" th:value="${account.password}">
@@ -44,6 +43,6 @@
 		<input type="hidden" name="password" th:value="${account.password}">
 				<input type="submit" value="戻る">
 	</form>
-</body>
+</main>
 
 </html>

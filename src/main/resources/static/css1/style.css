@@ -16,6 +16,11 @@ body {
 
 /* メイン */
 main {
+	min-height: 50px;
+	padding: 20px;
+}
+
+div{
 	background-color: #FFFFFF;
 	min-height: 50px;
 	padding: 20px;
