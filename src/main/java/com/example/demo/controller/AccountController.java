@@ -20,7 +20,7 @@ import jakarta.servlet.http.HttpSession;
 public class AccountController {
 	@Autowired
 	HttpSession session;
-	
+
 	@Autowired
 	User users;
 
@@ -42,34 +42,34 @@ public class AccountController {
 			@RequestParam(name = "name", defaultValue = "") String name,
 			@RequestParam(name = "password", defaultValue = "") String password,
 			Model m) {
-		
+
 		List<String> errorLog = new ArrayList<>();
-		
+
 		if (name == null || name.length() == 0) {
 			errorLog.add("名前を入力してください");
 		}
 		if (password == null || password.length() == 0) {
 			errorLog.add("パスワードを入力してください");
 		}
-		
+
 		List<Account> list = null;
-		
+
 		if (name.length() != 0 && password.length() != 0) {
 			list = accountRepository.findByNameAndPassword(name, password);
-			if (list.size() <= 0){
+			if (list.size() <= 0) {
 				errorLog.add("名前とパスワードが一致しません");
 			}
 		}
-		
+
 		if (errorLog.size() > 0) {
 			m.addAttribute("errorLog", errorLog);
 			return "login";
 		}
-		
+
 		Account account = list.get(0);
-		
+
 		users.setName(account.getName());
-		
+
 		return "form";
 	}
 
@@ -79,13 +79,13 @@ public class AccountController {
 			@RequestParam(value = "name", defaultValue = "") String name,
 			@RequestParam(value = "password", defaultValue = "") String password,
 			Model model) {
-	
-		model.addAttribute("name" , name);
-		model.addAttribute("password" , password);
-		
+
+		model.addAttribute("name", name);
+		model.addAttribute("password", password);
+
 		return "addAccount";
 	}
-	
+
 	//新規登録処理
 	@PostMapping("/account/add")
 	public String store(
@@ -104,32 +104,39 @@ public class AccountController {
 			error.add("パスワードは必須です!");
 			//	return "contactForm";
 		}
-		
+
 		List<Account> list = accountRepository.findByName(name);
 		if (list.size() > 0) {
-		error.add("既に同じ名前のアカウントが存在しています!");
+			error.add("既に同じ名前のアカウントが存在しています!");
 		}
-		
+
 		if (error.size() > 0) {
 			model.addAttribute("error", error);
-			
+
 			Account account = new Account(name, password);
 			model.addAttribute("account", account);
-			
+
 			return "addAccount";
 		}
 
 		Account account = new Account(name, password);
 		model.addAttribute("account", account);
-		accountRepository.save(account);
 
 		return "accountConfirm";
 	}
 
 	//ログイン画面へ遷移
-	
+
 	@PostMapping("/account/finish")
-	public String finish() {
-				return "login";
+	public String finish(
+			@RequestParam(value = "name", defaultValue = "") String name,
+			@RequestParam(value = "password", defaultValue = "") String password,
+			Model model) {
+		Account account = new Account(name, password);
+		model.addAttribute("account", account);
+		accountRepository.save(account);
+		
+			return "login";
+		
 	}
 }
