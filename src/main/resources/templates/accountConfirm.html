@@ -5,25 +5,35 @@
 <head>
 	<meta charset="UTF-8">
 	<title>新規登録確認</title>
+	<style>
+			body {
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				justify-content: center;
+				height: 100vh;
+				text-align: center;
+			}
+	</style>
 </head>
+<link rel="stylesheet" type="text/css" href="/css/main.css">
 
 <body>
 	<form action="/account/finish" method="post">
 		<input type="hidden" name="name" th:value="${account.name}">
 		<input type="hidden" name="password" th:value="${account.password}">
 
-		<h1>会員登録ありがとうございます。</h1><br>
-		<h3>以下の内容でお間違いございませんか？</h3>
+		<h1><span style="color: antiquewhite">以下の内容でお間違いございませんか？</span></h1>
 		<table border="1">
 
 			<tr>
-				<th>名前:</th>
-				<td>[[${account.name}]]</td>
+				<th width="150px" hight="25px">名前:</th>
+				<td><p th:text="${account.name}" style="background-color: antiquewhite"></p></td>
 			</tr>
-
+			
 			<tr>
-				<th>パスワード:</th>
-				<td>[[${account.password}]]</td>
+				<th width="150px" hight="25px">パスワード:</th>
+				<td><p th:text="${account.password}" style="background-color: antiquewhite"></p></td>
 			</tr>
 
 		</table>
