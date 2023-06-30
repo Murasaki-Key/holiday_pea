@@ -9,7 +9,9 @@
 		<h1>[[${name}]]さんの休日</h1>
 	</header>
 	<main>
-		移動:[[${vehicle}]]
+		移動:
+		<th:block th:if="${vehicle} == 1">電車</th:block>
+		<th:block th:if="${vehicle} == 2">車</th:block>
 		<br>
 		食事:[[${eatplan}]]
 		<br>

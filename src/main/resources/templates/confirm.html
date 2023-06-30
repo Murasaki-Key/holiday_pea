@@ -15,18 +15,25 @@
 		<input type="hidden" name="vehicle" th:value="${vehicle}">
 		<input type="hidden" name="eatplan" th:value="${eatplan}">
 		<input type="hidden" name="actplan" th:value="${actplan}">
-		季節:[[${season}]]
+		季節:
+		<th:block th:if="${season} == 1">春</th:block>
+		<th:block th:if="${season} == 2">夏</th:block>
+		<th:block th:if="${season} == 3">秋</th:block>
+		<th:block th:if="${season} == 4">冬</th:block>
 		<br>
-		天気:[[${weather}]]
+		天気:
+		<th:block th:if="${weather} == 1">晴れ</th:block>
+		<th:block th:if="${weather} == 2">雨</th:block>
 		<br>
-		移動:[[${vehicle}]]
+		移動:
+		<th:block th:if="${vehicle} == 1">電車</th:block>
+		<th:block th:if="${vehicle} == 2">車</th:block>
 		<br>
 		食事:[[${eatplan}]]
 		<br>
 		行動:[[${actplan}]]
 		<br>
 		<input type="submit" value="決定">
-	</form>
 	</main>
 </body>
 </html>
