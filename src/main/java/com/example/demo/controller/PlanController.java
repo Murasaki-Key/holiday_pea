@@ -44,10 +44,10 @@ public class PlanController {
 		
 		//食べ物をランダムで決定する
 		List <Eat> eatlist = null;
-		if(food.equals(5) == true) {
-			eatlist = eatRepository.findBySeasonid(season);
+		if(food.equals(8) == true) {
+			eatlist = eatRepository.find01(season);
 		}else {
-			eatlist = eatRepository.find01(season, food);
+			eatlist = eatRepository.find02(season, food);
 		}
 		Integer ran1 = eatlist.size();
 		Integer randomfood  = random.nextInt(ran1);//乱数生成
@@ -56,10 +56,26 @@ public class PlanController {
 		
 		//行動をランダムで決定する
 		List <Act> actlist = null;
-		if(act.equals(5) == true) {
-			actlist = actRepository.findBySeasonid(season);
+		if(act.equals(10) == true) {//おまかせ
+			if((vehicle.equals(1) == true) && (weather.equals(2) == true)) {//雨で電車移動
+				actlist = actRepository.find01(season);
+			}else if(vehicle.equals(1) == true){//晴れで電車移動
+				actlist = actRepository.find02(season);
+			}else if(weather.equals(2) == true){//雨で車移動
+				actlist = actRepository.find03(season);
+			}else{//晴れで車移動
+				actlist = actRepository.find04(season);
+			}
 		}else {
-			actlist = actRepository.find01(season, act);
+			if((vehicle.equals(1) == true) && (weather.equals(2) == true)) {//雨で電車移動
+				actlist = actRepository.find05(season, act);
+			}else if(vehicle.equals(1) == true){//晴れで電車移動
+				actlist = actRepository.find06(season, act);
+			}else if(weather.equals(2) == true){//雨で車移動
+				actlist = actRepository.find07(season, act);
+			}else{//晴れで車移動
+				actlist = actRepository.find08(season, act);
+			}
 		}
 		Integer ran2 = actlist.size();
 		Integer randomact  = random.nextInt(ran2);//乱数生成
@@ -84,17 +100,6 @@ public class PlanController {
 			Model m
 			) {
 		String message = "";
-		if(season == 1) {
-			if(weather == 1) {
-				message = "春の晴れ";
-			}
-			if(weather == 2) {
-				message = "春の曇り";
-			}
-			if(weather == 3) {
-				message = "春の雨";
-		}
-		}
 		
 		String name = users.getName();
 	

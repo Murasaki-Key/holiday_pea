@@ -21,6 +21,12 @@ public class Act {
 	private Integer categoryid; //カテゴリー
 	
 	@Getter
+	private Integer vehicleid; //乗り物
+	
+	@Getter
+	private Integer weatherid; //天気
+	
+	@Getter
 	private Integer seasonid; //季節
 
 	@Getter

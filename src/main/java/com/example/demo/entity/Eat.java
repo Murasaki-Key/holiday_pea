@@ -20,6 +20,9 @@ public class Eat {
 	private Integer categoryid; //カテゴリー
 	
 	@Getter
+	private Integer subcategoryid; //カテゴリーサブID
+	
+	@Getter
 	private Integer seasonid; //季節
 
 	@Getter
