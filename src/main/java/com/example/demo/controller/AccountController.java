@@ -104,11 +104,19 @@ public class AccountController {
 			error.add("パスワードは必須です!");
 			//	return "contactForm";
 		}
+		
+		if(password.length() < 4
+				|| password.length() > 15
+				|| password.matches("^[A-Za-z0-9]+$") == false) {
+				error.add("パスワードは5文字以上15文字以内の英数字を入力してください");
+				}
 
 		List<Account> list = accountRepository.findByName(name);
 		if (list.size() > 0) {
 			error.add("既に同じ名前のアカウントが存在しています!");
 		}
+		
+		
 
 		if (error.size() > 0) {
 			model.addAttribute("error", error);
@@ -118,6 +126,8 @@ public class AccountController {
 
 			return "addAccount";
 		}
+		
+		
 
 		Account account = new Account(name, password);
 		model.addAttribute("account", account);

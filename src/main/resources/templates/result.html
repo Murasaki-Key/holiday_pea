@@ -79,15 +79,21 @@
 				冬の雨
 			</th:block>
 		<br>
+		<br>
 		<form method=get action="http://www.google.co.jp/search"  target="_blank">
 			<input type=text name=q size=31 maxlength=255 th:value="${eatplan} + '　' + '都内'">
+			<br>
+			<br>
 			<input type=submit name=btnG value="検索">
 		</form>
 		<br>
 		<form method=get action="http://www.google.co.jp/search"  target="_blank">
 			<input type=text name=q size=31 maxlength=255 th:value="${actplan} + '　' + '都内'">
+			<br>
+			<br>
 			<input type=submit name=btnG value="検索">
 		</form>
+		<br>
 		<form method=post action="/replan">
 			<input type=submit value="もう一度予定を生成する">
 		</form>
