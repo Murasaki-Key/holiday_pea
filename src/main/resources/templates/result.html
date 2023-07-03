@@ -14,6 +14,32 @@
 		}
 	</style>
 </head>
+
+<!--<th:block th:if="${sw} == 1">-->
+<!--	<link rel="stylesheet" type="text/css" href="">-->
+<!--</th:block>-->
+<!--<th:block th:if="${sw} == 2">-->
+<!--	<link rel="stylesheet" type="text/css" href="">-->
+<!--</th:block>-->
+<!--<th:block th:if="${sw} == 3">-->
+<!--	<link rel="stylesheet" type="text/css" href="">-->
+<!--</th:block>-->
+<!--<th:block th:if="${sw} == 4">-->
+<!--	<link rel="stylesheet" type="text/css" href="">-->
+<!--</th:block>-->
+<!--<th:block th:if="${sw} == 5">-->
+<!--	<link rel="stylesheet" type="text/css" href="">-->
+<!--</th:block>-->
+<!--<th:block th:if="${sw} == 6">-->
+<!--	<link rel="stylesheet" type="text/css" href="">-->
+<!--</th:block>-->
+<!--<th:block th:if="${sw} == 7">-->
+<!--	<link rel="stylesheet" type="text/css" href="">-->
+<!--</th:block>-->
+<!--<th:block th:if="${sw} == 8">-->
+<!--	<link rel="stylesheet" type="text/css" href="">-->
+<!--</th:block>-->
+
 <link rel="stylesheet" type="text/css" href="/css1/style.css">
 <body>
 	<header>
@@ -28,7 +54,30 @@
 		<br>
 		行動:[[${actplan}]]
 		<br>
-		[[${message}]]
+			<th:block th:if="${sw} == 1">
+				春の晴れ
+			</th:block>
+			<th:block th:if="${sw} == 2">
+				春の雨
+			</th:block>
+			<th:block th:if="${sw} == 3">
+				夏の晴れ
+			</th:block>
+			<th:block th:if="${sw} == 4">
+				夏の雨
+			</th:block>
+			<th:block th:if="${sw} == 5">
+				秋の晴れ
+			</th:block>
+			<th:block th:if="${sw} == 6">
+				秋の雨
+			</th:block>
+			<th:block th:if="${sw} == 7">
+				冬の晴れ
+			</th:block>
+			<th:block th:if="${sw} == 8">
+				冬の雨
+			</th:block>
 	</main>
 </body>
 </html>
