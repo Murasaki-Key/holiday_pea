@@ -30,10 +30,10 @@ div{
 	padding: 1px;
 }
 
-div1{
-	background-color:#ffffff;
-	min-height: 1px;
-	padding: 1px;
+h2{
+	border-bottom: 2px solid greenyellow;
+    width: 12em;
+    letter-spacing: 0;
 }
 
 /* 表線 */
@@ -42,6 +42,7 @@ th,
 td {
 	border-collapse: collapse;
 	border: 1px solid #7d8bae;
+	background-color: #9effce;
 }
 
 /* 表 */

@@ -1,48 +1,50 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 
-	<head>
-		<meta charset="UTF-8">
-		<title>新規登録</title>
-		<br>
-		<style>
-			body {
-				display: flex;
-				flex-direction: column;
-				align-items: center;
-				justify-content: center;
-				height: 100vh;
-				text-align: center;
-			}
-		</style>
-	</head>
-	<link rel="stylesheet" type="text/css" href="/css1/style.css">
+<head>
+	<meta charset="UTF-8">
+	<title>新規登録</title>
 	<br>
-	<main>
-		<h2 style="color: #939393">新規登録</h2>
-		<form action="/account/add" method="post">
+	<style>
+		body {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			height: 100vh;
+			text-align: center;
+		}
 
-			<span th:text="${error}" style="color: red"></span>
+	</style>
+</head>
+<link rel="stylesheet" type="text/css" href="/css1/style.css">
+<br>
+<main>
+	
+	<h2 style="color: #008080">新規登録</h2>
+	<form action="/account/add" method="post">
 
-			<table border="1">
-				<tr>
-					<th width="150px" hight="25px">名前</th>
-					<td>
-						<input type="text" name="name" th:value="${name}">
-					</td>
-				</tr>
+		<span th:text="${error}" style="color: red"></span>
 
-				<tr>
-					<th>パスワード</th>
-					<td>
-						<input type="text" name="password" th:value="${password}">
-					</td>
-				</tr>
-			</table>
-			<button>登録</button>
-		</form>
-	</main>
+		<table border="1">
+			<tr>
+				<th width="150px" hight="25px">名前</th>
+				<td>
+					<input type="text" name="name" th:value="${name}">
+				</td>
+			</tr>
 
-	</body>
+			<tr>
+				<th>パスワード</th>
+				<td>
+					<input type="text" name="password" th:value="${password}">
+				</td>
+			</tr>
+		</table>
+		<button>登録</button>
+	</form>
+</main>
 
-	</html>
+</body>
+
+</html>

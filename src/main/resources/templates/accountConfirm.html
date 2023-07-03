@@ -4,15 +4,16 @@
 <head>
 	<meta charset="UTF-8">
 	<title>新規登録確認</title>
+	<br>
 	<style>
-			body {
-				display: flex;
-				flex-direction: column;
-				align-items: center;
-				justify-content: center;
-				height: 100vh;
-				text-align: center;
-			}
+		body {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			height: 100vh;
+			text-align: center;
+		}
 	</style>
 </head>
 <link rel="stylesheet" type="text/css" href="/css1/style.css">
@@ -21,27 +22,33 @@
 		<input type="hidden" name="name" th:value="${account.name}">
 		<input type="hidden" name="password" th:value="${account.password}">
 
-		<h1><span style="color: antiquewhite">以下の内容でお間違いございませんか？</span></h1>
+		<h2><span style="color: #008080">以下の内容で</span></h2>
+			<h2><span style="color: #008080">お間違いございませんか？</span></h2>
+
 		<table border="1">
 
 			<tr>
-				<th width="150px" hight="25px">名前:</th>
-				<td><p th:text="${account.name}" style="background-color: antiquewhite"></p></td>
+				<th width="150px" hight="15px">名前:</th>
+				<td>
+					<p th:text="${account.name}"></p>
+				</td>
 			</tr>
-			
+
 			<tr>
-				<th width="150px" hight="25px">パスワード:</th>
-				<td><p th:text="${account.password}" style="background-color: antiquewhite"></p></td>
+				<th width="150px" hight="15px">パスワード:</th>
+				<td>
+					<p th:text="${account.password}"></p>
+				</td>
 			</tr>
 
 		</table>
 		<input type="submit" value="確認">
 	</form>
-	
+
 	<form action="/account" method="get">
 		<input type="hidden" name="name" th:value="${account.name}">
 		<input type="hidden" name="password" th:value="${account.password}">
-				<input type="submit" value="戻る">
+		<input type="submit" value="戻る">
 	</form>
 </main>
 
