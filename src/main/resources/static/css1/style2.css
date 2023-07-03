@@ -20,17 +20,12 @@ body {
 
 /* メイン */
 main {
+	background-color:#ffffff;
 	min-height: 50px;
 	padding: 20px;
 }
 
 div{
-	background-color:#ffffff;
-	min-height: 1px;
-	padding: 1px;
-}
-
-div1{
 	background-color:#ffffff;
 	min-height: 1px;
 	padding: 1px;
