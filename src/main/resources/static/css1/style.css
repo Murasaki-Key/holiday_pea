@@ -20,6 +20,7 @@ body {
 
 /* メイン */
 main {
+	background-color:#fffacd;
 	min-height: 50px;
 	padding: 20px;
 }

@@ -14,57 +14,34 @@
 			height: 100vh;
 			text-align: center;
 		}
-
 	</style>
 </head>
 <link rel="stylesheet" type="text/css" href="/css1/style.css">
 <br>
 <main>
-	
+
 	<h2 style="color: #008080">新規登録</h2>
 	<form action="/account/add" method="post">
 
-
 		<span th:text="${error}" style="color: red"></span>
-
-			<table border="1">
-				<tr>
-					<th width="150px" hight="25px">名前</th>
-					<td>
-						<input type="text" name="name" th:value="${name}"  maxlength="10">
-					</td>
-				</tr>
 
 		<table border="1">
 			<tr>
 				<th width="150px" hight="25px">名前</th>
 				<td>
-					<input type="text" name="name" th:value="${name}">
+					<input type="text" name="name" th:value="${name}" maxlength="10">
 				</td>
 			</tr>
-
-				<tr>
-					<th>パスワード</th>
-					<td>
-						<input type="text" name="password" th:value="${password}"  maxlength="15">
-					</td>
-				</tr>
-			</table>
-			<button>登録</button>
-		</form>
-	</main>
 
 			<tr>
 				<th>パスワード</th>
 				<td>
-					<input type="text" name="password" th:value="${password}">
+					<input type="text" name="password" th:value="${password}" maxlength="15">
 				</td>
 			</tr>
 		</table>
 		<button>登録</button>
 	</form>
 </main>
-
 </body>
-
 </html>
