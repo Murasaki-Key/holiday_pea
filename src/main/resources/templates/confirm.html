@@ -20,7 +20,7 @@
 		<h1>予定</h1>
 	</header>
 	<main>
-	<form action="/result" method="get">
+	<form action="/result" method="post">
 		<input type="hidden" name="season"  th:value="${season}">
 		<input type="hidden" name="weather" th:value="${weather}">
 		<input type="hidden" name="vehicle" th:value="${vehicle}">
@@ -46,7 +46,7 @@
 		<br>
 		<input type="submit" value="決定">
 	</form>
-	<form action="/plan" method="gett">
+	<form action="/plan" method="post">
 		<input type="hidden" name="season"  th:value="${season}">
 		<input type="hidden" name="weather" th:value="${weather}">
 		<input type="hidden" name="vehicle" th:value="${vehicle}">
@@ -54,7 +54,7 @@
 		<input type="hidden" name="act"  th:value="${act}">
 		<input type="submit" value="同じ条件でもう一度">
 	</form>
-	<form action="/replan" method="get">
+	<form action="/replan" method="post">
 		<input type="submit" value="条件を設定しなおす">
 	</form>
 	</main>
