@@ -6,7 +6,7 @@ import java.util.Random;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.example.demo.entity.Act;
@@ -31,7 +31,7 @@ public class PlanController {
 	@Autowired
 	ActRepository actRepository;
 
-	@PostMapping("/plan")
+	@GetMapping("/plan")
 	public String plan(
 			@RequestParam(name="season",defaultValue= "") Integer season ,
 			@RequestParam(name="weather",defaultValue="") Integer weather ,
@@ -92,7 +92,7 @@ public class PlanController {
 		return "confirm";
 	}
 	
-	@PostMapping("/result")
+	@GetMapping("/result")
 	public String result(
 			@RequestParam("season") Integer season ,
 			@RequestParam("weather") Integer weather ,
@@ -138,7 +138,7 @@ public class PlanController {
 		return "result";
 	}
 	
-	@PostMapping("/replan")
+	@GetMapping("/replan")
 	public String replan() {
 		return "form";
 	}
