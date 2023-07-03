@@ -1,0 +1,73 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Cherry+Swash&display=swap');
+
+/* 全体 */
+body {
+	background-color: #313a3d;
+	background-attachment: fixed, fixed;
+	background-image: url("/images/SpR.jpg");
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+	font-family: 'Cherry Swash', cursive;
+
+
+	/* 背景色  */
+	text-align: center;
+	/* 中央寄せ */
+	min-width: 900px;
+	/* 最小幅 */
+}
+
+/* メイン */
+main {
+	background-color:2#f5deb3;
+	min-height: 70px;
+	padding: 20px;
+}
+
+div {
+	background-color: #ffffff;
+	min-height: 1px;
+	padding: 1px;
+}
+
+/* 表線 */
+table,
+th,
+td {
+	border-collapse: collapse;
+	border: 1px solid #7d8bae;
+}
+
+/* 表 */
+table {
+	margin: 5px auto;
+	min-width: 800px;
+}
+
+/* 表見出しセル */
+table th {
+	background: #7d8bae;
+	color: #ffffff;
+}
+
+/* 送信ボタン(マウスオーバー時) */
+button:hover {
+	background-color: #f1b2b2;
+}
+
+/* Form */
+
+input[type="text"],
+textarea {
+	background: rgba(144, 144, 144, 0.15);
+	border: none;
+	padding: 0 1em;
+	width: 96%;
+}
+
+input[type="text"],
+select {
+	height: 3em;
+}
