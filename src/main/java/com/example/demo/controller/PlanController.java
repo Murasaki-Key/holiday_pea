@@ -101,19 +101,39 @@ public class PlanController {
 			@RequestParam("actplan") String actplan ,
 			Model m
 			) {
-		String message = "";
-		
 		String name = users.getName();
-	
+		Integer sw = null;
+		if(season.equals(1) == true) {
+			if(weather.equals(1) == true) {
+				sw = 1;
+			}else {
+				sw = 2;
+			}
+		}else if(season.equals(2) == true) {
+			if(weather.equals(1) == true) {
+				sw = 3;
+			}else {
+				sw = 4;
+			}
+		}else if(season.equals(3) == true) {
+			if(weather.equals(1) == true) {
+				sw = 5;
+			}else {
+				sw = 6;
+			}
+		}else if(season.equals(4) == true) {
+			if(weather.equals(1) == true) {
+				sw = 7;
+			}else {
+				sw = 8;
+			}
+		}
 		
+		m.addAttribute("sw", sw);
 		m.addAttribute("name", name);
-    	m.addAttribute("message",message);
-		m.addAttribute("season", season);
-		m.addAttribute("weather", weather);
 		m.addAttribute("vehicle", vehicle);
 		m.addAttribute("eatplan", eatplan);
 		m.addAttribute("actplan", actplan);
-		
 		
 		return "result";
 	}
