@@ -97,6 +97,8 @@
 			<input type=submit value="もう一度予定を生成する">
 		</form>
 		<form method=get action="/detail">
+			<input type="hidden" name="eatplan" th:value="${eatplan}">
+			<input type="hidden" name="actplan" th:value="${actplan}">
 			<input type=submit value="詳細な計画を立てる">
 		</form>
 	</main>
