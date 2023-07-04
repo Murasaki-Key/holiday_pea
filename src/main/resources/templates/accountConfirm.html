@@ -11,7 +11,7 @@
 			flex-direction: column;
 			align-items: center;
 			justify-content: center;
-			height: 100vh;
+			height: 130vh;
 			text-align: center;
 		}
 	</style>
@@ -22,20 +22,19 @@
 		<input type="hidden" name="name" th:value="${account.name}">
 		<input type="hidden" name="password" th:value="${account.password}">
 
-		<h2><span style="color: #008080">以下の内容で</span></h2>
-			<h2><span style="color: #008080">お間違いございませんか？</span></h2>
+		<div style="line-height:-5;"><h2><span style="color: #008080">以下の内容で、</span></h2><br>
+			<h2><span style="color: #008080">お間違いございませんか？</span></h2></div>
 
 		<table border="1">
-
 			<tr>
-				<th width="150px" hight="15px">名前:</th>
+				<th style="width: 430px;">名前:</th>
 				<td>
-					<p th:text="${account.name}"></p>
+					<p th:text="${account.name}" maxlength="10"></p>
 				</td>
 			</tr>
 
 			<tr>
-				<th width="150px" hight="15px">パスワード:</th>
+				<th style="width: 430px;">パスワード:</th>
 				<td>
 					<p th:text="${account.password}"></p>
 				</td>

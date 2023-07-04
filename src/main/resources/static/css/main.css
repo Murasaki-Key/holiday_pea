@@ -85,7 +85,7 @@ input, select, textarea {
 	html {
 		background-color: #313a3d;
 		background-attachment: fixed,						fixed;
-		background-image: url("/images/home.jpg");/*url("images/overlay.png"), url("../../images/bg.jpg");*/
+		background-image: url("/images/home.jpg");
 		background-position: center center;
 		background-repeat: no-repeat;
 		background-size: 100% 100%;
@@ -1921,7 +1921,7 @@ input, select, textarea {
 
 	}
 
-/* Section/Article */
+ Section/Article 
 
 	section.special, article.special {
 		text-align: center;
@@ -2518,11 +2518,10 @@ input, select, textarea {
 		}
 
 		table th {
-			color: #61686b;
-			font-size: 0.9em;
-			font-weight: 700;
+			color: red;
+			font-size: 1.2em;
+			font-weight: 1000;
 			padding: 0 0.75em 0.75em 0.75em;
-			text-align: left;
 		}
 
 		table thead {
