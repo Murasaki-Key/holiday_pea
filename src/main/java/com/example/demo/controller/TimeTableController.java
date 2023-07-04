@@ -1,15 +1,18 @@
 package com.example.demo.controller;
 
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.example.demo.entity.TimeTableList;
 import com.example.demo.model.User;
+import com.example.demo.repository.TimeTableListRepository;
 
 import jakarta.servlet.http.HttpSession;
 
@@ -20,6 +23,9 @@ public class TimeTableController {
 	
 	@Autowired
 	User users;
+	
+	@Autowired
+	TimeTableListRepository timetablelistRepository;
 
 	@GetMapping("/detail")
 	public String detail(
@@ -27,18 +33,73 @@ public class TimeTableController {
 			@RequestParam(name="actplan",defaultValue="") String actplan ,
 			Model m
 			) {
+		TimeTableList timetablelist = new TimeTableList("11:00","12:00","移動","");
+		timetablelistRepository.save(timetablelist);
 		
-		Calendar cl = Calendar.getInstance();
-
-        //日付をyyyyMMddの形で出力する
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");
-        String date = sdf.format(cl.getTime());
+		timetablelist = new TimeTableList("12:00","13:00",eatplan,"");
+		timetablelistRepository.save(timetablelist);
 		
-        m.addAttribute("date",date);
-        m.addAttribute("eatplan",eatplan);
-        m.addAttribute("actplan",actplan);
+		timetablelist = new TimeTableList("13:00","14:00","移動","");
+		timetablelistRepository.save(timetablelist);
+		
+		timetablelist = new TimeTableList("14:00","16:00",actplan,"");
+		timetablelistRepository.save(timetablelist);
         
-		return "";
+		List <TimeTableList> timetables = timetablelistRepository.findAll1();
+        
+		m.addAttribute("timetables",timetables);
+        
+        return "timetable";
+	}
+	
+	@PostMapping("/detail/{id}/delete")
+	public String delete(
+			@PathVariable("id") Integer id,
+			Model m
+			) {
+		
+		timetablelistRepository.deleteById(id);
+		List <TimeTableList> timetables = timetablelistRepository.findAll1();
+        
+		m.addAttribute("timetables",timetables);
+		return "timetable";
+	}
+	
+	@PostMapping("/detail/{id}/edit")
+	public String edit(
+			@PathVariable("id") Integer id,
+			@RequestParam(name="starttime",defaultValue="") String starttime ,
+			@RequestParam(name="finishtime",defaultValue="") String finishtime ,
+			@RequestParam(name="action",defaultValue="") String action ,
+			@RequestParam(name="place",defaultValue="") String place ,
+			Model m
+			) {
+		
+		TimeTableList timetablelist = new TimeTableList(id,starttime,finishtime,action,place);
+		timetablelistRepository.save(timetablelist);
+		
+		List <TimeTableList> timetables = timetablelistRepository.findAll1();
+        
+		m.addAttribute("timetables",timetables);
+		return "timetable";
+	}
+	
+	@PostMapping("/detail/add")
+	public String add(
+			@RequestParam(name="starttime",defaultValue="") String starttime ,
+			@RequestParam(name="finishtime",defaultValue="") String finishtime ,
+			@RequestParam(name="action",defaultValue="") String action ,
+			@RequestParam(name="place",defaultValue="") String place ,
+			Model m) {
+		
+		TimeTableList timetablelist = new TimeTableList(starttime,finishtime,action,place);
+		timetablelistRepository.save(timetablelist);
+		
+		List <TimeTableList> timetables = timetablelistRepository.findAll1();
+        
+		m.addAttribute("timetables",timetables);
+		
+		return "timetable";
 	}
 			
 }
