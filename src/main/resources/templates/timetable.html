@@ -17,7 +17,6 @@
 </head>
 <link rel="stylesheet" type="text/css" href="/css1/style.css">
 <body>
-	<form action="/detail/complete" method="post">
 	<header>
 	</header>
 	<main>
@@ -53,8 +52,8 @@
 			</tr>
 		</table>
 		<br>
-		<form action="/detail/add" method="post">
 		<table>
+		<form action="/detail/add" method="post">
 			<tr>
 				<th>開始</th><th>終了</th><th>目的</th><th>場所</th><th></th>
 			</tr>
@@ -73,10 +72,12 @@
 				<td>
 					<input type="submit" value="行程追加">
 				</td>
-		</table>	
 		</form>
+		</table>	
+	
 	</main>
 	<br>
+	<form action="/detail/confirm" method="post">
 	<input type="submit" value="確定">
 	</form>
 </body>

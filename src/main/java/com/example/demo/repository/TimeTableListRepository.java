@@ -14,4 +14,11 @@ public interface TimeTableListRepository extends JpaRepository<TimeTableList, In
 			nativeQuery=true
 		)
 	List <TimeTableList> findAll1();
+	
+	@Query(
+			value="select * from timetablelist order by starttime limit 1 offset ?1 ",
+			nativeQuery=true
+		)
+	List <TimeTableList> findRow(Integer i);
+	
 }

@@ -18,7 +18,7 @@ public class TimeTable {
 	
 	private String username; //ユーザー名
 	
-	private String plantitele;//予定名
+	private Integer planid;//予定id
 	
 	private String starttime; //開始時刻
 	
@@ -31,5 +31,17 @@ public class TimeTable {
 	private String plandate;// 日付
 
 	public TimeTable() {
+	}
+
+	public TimeTable(String username, Integer planid, String starttime, String finishtime, String action, String place,
+			String plandate) {
+		this.username = username;
+		this.planid = planid;
+		this.starttime = starttime;
+		this.finishtime = finishtime;
+		this.action = action;
+		this.place = place;
+		this.plandate = plandate;
 	} 
+	
 }
