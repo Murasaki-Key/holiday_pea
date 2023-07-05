@@ -37,6 +37,8 @@ h2 {
 	border-bottom: 2px solid #ffffc1;
 	width: 12em;
 	letter-spacing: 0;
+	margin-top: 0px;
+	margin-bottom: 0px;
 }
 
 /* 表線 */
@@ -80,6 +82,18 @@ button:hover {
 	}
 
 	input[type="text"],
+	select {
+		height: 3em;
+	}
+	
+	input[type="password"],
+	textarea {
+		background: rgba(144, 144, 144, 0.15);
+		border: none;
+		padding: 0 1em;
+	}
+
+	input[type="password"],
 	select {
 		height: 3em;
 	}

@@ -22,12 +22,12 @@
 		<input type="hidden" name="name" th:value="${account.name}">
 		<input type="hidden" name="password" th:value="${account.password}">
 
-		<div style="line-height:-5;"><h2><span style="color: #008080">以下の内容で、</span></h2><br>
+		<div style="margin-top: 0px;"><h2><span style="color: #008080">以下の内容で、</span></h2><br>
 			<h2><span style="color: #008080">お間違いございませんか？</span></h2></div>
 
 		<table border="1">
 			<tr>
-				<th style="width: 430px;">名前:</th>
+				<th style="width: 430px;">ユーザー名:</th>
 				<td>
 					<p th:text="${account.name}" maxlength="10"></p>
 				</td>
