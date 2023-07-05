@@ -23,7 +23,7 @@
 	<br> <span th:text="${errorLog}" style="color: red"></span>
 
 	<table border="1">
-		<form action="/login" method="post">
+		<form action="/login" method="post" name="aaa">
 			<tr>
 				<th>ユーザー名</th>
 				<td>
@@ -39,10 +39,23 @@
 				</td>
 			</tr>
 			</table>	
-			<input type="submit" value="ログイン" style="bottom:30px">
+			
+			<a href="javascript: aaa.submit();" class="tbtn tbtn-svg" value="ログイン">
+				<svg>
+					<rect x="2" y="2" rx="0" fill="none" width=200 height="50"></rect>
+				</svg>
+				<span style="font-size: 62.5%">ログイン</span>
+			</a>
+			
 		</form>
-			<form action="/account" method="get" >
-			<input type="submit" value="新規登録" style="bottom:30px">
+		
+		<form action="/account" method="get" >
+			<a th:href="@{/account}" class="tbtn tbtn-svg" value="新規登録">
+				<svg>
+					<rect x="2" y="2" rx="0" fill="none" width=200 height="50"></rect>
+				</svg>
+				<span style="font-size: 62.5%">新規作成</span>
+			</a>
 		</form>
 </main>	
 </body>
