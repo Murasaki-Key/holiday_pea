@@ -17,27 +17,35 @@
 
 <th:block th:if="${sw} == 1">
 	<link rel="stylesheet" type="text/css" href="/css1/SpringSunny.css">
+	<link rel="stylesheet" type="text/css" href="/css1/textColor.css">
 </th:block>
 <th:block th:if="${sw} == 2">
 	<link rel="stylesheet" type="text/css" href="/css1/SpringRain.css">
+	<link rel="stylesheet" type="text/css" href="/css1/textColor.css">
 </th:block>
 <th:block th:if="${sw} == 3">
 	<link rel="stylesheet" type="text/css" href="/css1/SummerSunny.css">
+	<link rel="stylesheet" type="text/css" href="/css1/textColor.css">
 </th:block>
 <th:block th:if="${sw} == 4">
 	<link rel="stylesheet" type="text/css" href="/css1/SummerRain.css">
+	<link rel="stylesheet" type="text/css" href="/css1/textColor.css">
 </th:block>
 <th:block th:if="${sw} == 5">
 	<link rel="stylesheet" type="text/css" href="/css1/AutumnSunny.css">
+	<link rel="stylesheet" type="text/css" href="/css1/textColor.css">
 </th:block>
 <th:block th:if="${sw} == 6">
 	<link rel="stylesheet" type="text/css" href="/css1/AutumnRain.css">
+	<link rel="stylesheet" type="text/css" href="/css1/textColor.css">
 </th:block>
 <th:block th:if="${sw} == 7">
 	<link rel="stylesheet" type="text/css" href="/css1/WinterSunny.css">
+	<link rel="stylesheet" type="text/css" href="/css1/textColor.css">
 </th:block>
 <th:block th:if="${sw} == 8">
 	<link rel="stylesheet" type="text/css" href="/css1/WinterRain.css">
+	<link rel="stylesheet" type="text/css" href="/css1/textColor.css">
 </th:block>
 
 <body>
@@ -80,7 +88,7 @@
 		<br>
 		<br>
 		<form method=get action="http://www.google.co.jp/search"  target="_blank" name="ooo">
-			<input type=text style="border: 2px solid #0a0;" name=q size=31 maxlength=255 th:value="${eatplan} + '　' + '都内'">
+			<input type=text style="border: 2px solid #0a0;" name=q size=31 maxlength=255 th:value="${eatplan} + '　' + '都内'" class="AAA">
 			<br>
 			<a href="javascript: ooo.submit();" class="tbtn tbtn-svg">
 				<svg>
@@ -92,14 +100,14 @@
 		
 		<br>
 		<form method=get action="http://www.google.co.jp/search"  target="_blank">
-			<input type=text style="border: 2px solid #0a0;" name=q size=31 maxlength=255 th:value="${actplan} + '　' + '都内'">
+			<input type=text style="border: 2px solid #0a0;" name=q size=31 maxlength=255 th:value="${actplan} + '　' + '都内'" class="AAA">
 			<br>
 			<br>
 			<a href="javascript: rrr.submit();" class="tbtn tbtn-svg">
 				<svg>
 					<rect x="2" y="2" rx="0" fill="none" width=170 height="35"></rect>
 				</svg>
-				<span style="font-size: 62.5%">検索</span>
+				<span style="font-size: 62.5%" >検索</span>
 			</a>
 		</form>
 		
