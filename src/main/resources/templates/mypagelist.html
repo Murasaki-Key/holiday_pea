@@ -18,10 +18,13 @@
 <link rel="stylesheet" type="text/css" href="/css1/style.css">
 <body>
 	<header>
-		<h1></h1>
+		<h1>[[${plandate}]]</h1>
 	</header>
 	<main>
 		<table border="1">
+			<tr>
+				<th>開始時刻</th><th>終了時刻</th><th>行動</th><th>場所</th>
+			</tr>
 			<tr th:each="t:${timetable}">
 				<td>
 					[[${t.starttime}]]
@@ -37,6 +40,9 @@
 				</td>
 			</tr>
 		</table>
+		<form action="/myplan" method="post">
+			<input type="submit" value="一覧へ">
+		</form>
 	</main>
 </body>
 </html>

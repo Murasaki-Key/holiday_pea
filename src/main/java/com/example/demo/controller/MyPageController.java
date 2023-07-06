@@ -45,6 +45,9 @@ public class MyPageController {
 		
 		List <TimeTable> timetable = timetableRepository.find02(username, planid);
 		
+		String plandate = timetable.get(0).getPlandate();
+		
+		m.addAttribute("plandate",plandate);
 		m.addAttribute("timetable",timetable);
 		return "mypagelist";
 	}

@@ -23,7 +23,7 @@
 	<main>
 		<th:block th:each="t,ti : ${timetable}">
 			[[${ti.count}]] .
-			<a th:href="|/myplan/${t.planid}|" method="get">
+			<a th:href="|/myplan/${t.planid}|">
 				<input type="hidden" name="planid" th:value="${t.planid}">
 				[[${t.plandate}]]
 			</a>

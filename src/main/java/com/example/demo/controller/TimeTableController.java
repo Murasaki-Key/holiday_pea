@@ -82,6 +82,8 @@ public class TimeTableController {
 			Model m
 			) {
 		
+		//SimpleDateFormat sdf = new SimpleDateFormat("HH:mm");
+		
 		TimeTableList timetablelist = new TimeTableList(id,starttime,finishtime,action,place);
 		timetablelistRepository.save(timetablelist);
 		
@@ -146,13 +148,14 @@ public class TimeTableController {
 		//作成した予定の取得
 		List <TimeTableList> timetables = timetablelistRepository.findAll1();
 		//planidの決定
-		Integer planid;
-		List<TimeTable> plantable = timetableRepository.findDisntinctByUsername(username);
+		Integer planid  = 1;
+		List<TimeTable> plantable = timetableRepository.decidePlanid(username);
 		if(plantable.isEmpty()) {
 			planid = 1;
 		}else {
 			planid = plantable.size() + 1;
 		}
+		
 		
 		Integer i = 0;
 		while(i < timetables.size()) {

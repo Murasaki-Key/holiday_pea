@@ -24,7 +24,7 @@ public interface TimeTableRepository extends JpaRepository<TimeTable, Integer>{
 	List<TimeTable> decidePlanid1(Integer p);
 	
 	@Query(
-			value=" select  * from timetable where username like ?1 and planid ?2 order by starttime",
+			value=" select  * from timetable where username like ?1 and planid = ?2 order by starttime",
 			nativeQuery=true
 		)
 	List<TimeTable> find02(String username, Integer planid);
