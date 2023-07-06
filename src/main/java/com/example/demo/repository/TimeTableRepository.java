@@ -9,11 +9,18 @@ import com.example.demo.entity.TimeTable;
 
 public interface TimeTableRepository extends JpaRepository<TimeTable, Integer>{
 	@Query(
-			value=" select distinct on(planid)* from timetable where username like '?1'",
+			value=" select distinct on(planid)* from timetable where username like ?1",
 			nativeQuery=true
 		)
 	List<TimeTable> decidePlanid(String username);
 	
-	Integer findDisntinctByUsername(String username);
+	
+	List<TimeTable> findDisntinctByUsername(String username);
+	
+	@Query(
+			value=" select  * from timetable  order by planid limit 1 offset ?1",
+			nativeQuery=true
+		)
+	List<TimeTable> decidePlanid1(Integer p);
 	
 }

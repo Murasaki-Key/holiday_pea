@@ -21,8 +21,8 @@
 		<h1>[[${username}]]さんの休日</h1>
 	</header>
 	<main>
-		<th:block th:each="t : ${timetable}">
-			[[${t.planid}]].[[${t.plandate}]]
+		<th:block th:each="t,ti : ${timetable}">
+			[[${ti.count}]] .[[${t.plandate}]]
 			<br>
 		</th:block>
 	</main>

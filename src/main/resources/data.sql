@@ -1,10 +1,5 @@
 INSERT INTO account(name, password) VALUES('test', 'himitu');
 
-INSERT INTO timetable(username, planid, starttime, finishtime, action,place, plandate)
-VALUES('test',1,'1000','1100','かつ丼','新宿','2023-08-01');
-INSERT INTO timetable(username, planid, starttime, finishtime, action,place, plandate)
-VALUES('test',2,'1000','1100','そば','浦和','2023-08-01');
-
 INSERT INTO eat(categoryid, subcategoryid, seasonid, name) VALUES(1,0,5,'焼肉');
 INSERT INTO eat(categoryid, subcategoryid, seasonid, name) VALUES(1,0,5, 'ステーキ');
 INSERT INTO eat(categoryid, subcategoryid, seasonid, name) VALUES(1,0,5, 'ジビエ');

@@ -146,16 +146,15 @@ public class TimeTableController {
 		//作成した予定の取得
 		List <TimeTableList> timetables = timetablelistRepository.findAll1();
 		//planidの決定
-		Integer planid = null;
-		Integer nfind = timetableRepository.findDisntinctByUsername(username);
-		
-		if(nfind == 0) {
+		Integer planid;
+		List<TimeTable> plantable = timetableRepository.findDisntinctByUsername(username);
+		if(plantable.isEmpty()) {
 			planid = 1;
 		}else {
-			planid = nfind + 1;
+			planid = plantable.size() + 1;
 		}
 		
-		Integer i = 1;
+		Integer i = 0;
 		while(i < timetables.size()) {
 			List <TimeTableList> tt = timetablelistRepository.findRow(i);
 			String starttime = tt.get(0).getStarttime();
