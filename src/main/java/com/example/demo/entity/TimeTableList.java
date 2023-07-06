@@ -9,16 +9,14 @@ import lombok.Data;
 
 @Data
 @Entity
-@Table(name = "timetable") // 対応するテーブル名
-public class TimeTable {
+@Table(name = "timetablelist") // 対応するテーブル名
+public class TimeTableList {
+
+	
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id; // ID
-	
-	private String username; //ユーザー名
-	
-	private Integer planid;//予定id
 	
 	private String starttime; //開始時刻
 	
@@ -27,21 +25,22 @@ public class TimeTable {
 	private String action;// 行動
 	
 	private String place;// 場所
-	
-	private String plandate;// 日付
 
-	public TimeTable() {
+	public TimeTableList() {
 	}
-
-	public TimeTable(String username, Integer planid, String starttime, String finishtime, String action, String place,
-			String plandate) {
-		this.username = username;
-		this.planid = planid;
+	
+	public TimeTableList(Integer id, String starttime, String finishtime, String action, String place) {
+		this.id = id;
 		this.starttime = starttime;
 		this.finishtime = finishtime;
 		this.action = action;
 		this.place = place;
-		this.plandate = plandate;
-	} 
-	
+	}
+
+	public TimeTableList(String starttime, String finishtime, String action, String place) {
+		this.starttime = starttime;
+		this.finishtime = finishtime;
+		this.action = action;
+		this.place = place;
+	}
 }

@@ -18,13 +18,17 @@
 <link rel="stylesheet" type="text/css" href="/css1/style.css">
 <body>
 	<header>
-		<h1>[[${username}]]さんの休日</h1>
+		<h1>完了</h1>
 	</header>
 	<main>
-		<th:block th:each="t,ti : ${timetable}">
-			[[${ti.count}]] .[[${t.plandate}]]
-			<br>
-		</th:block>
+		<h2>
+			<form action="/myplan" method="post">
+				<input type="submit" value="マイページへ">
+			</form>
+			<form action="/replan" method=post >
+				<input type="submit" value="もう一度予定を生成する">
+			</form>
+		</h2>
 	</main>
 </body>
 </html>

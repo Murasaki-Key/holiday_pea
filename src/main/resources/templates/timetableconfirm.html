@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<title>holiday</title>
+	<style>
+		body {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			height: 100vh;
+			text-align: center;
+		}
+	</style>
+</head>
+<link rel="stylesheet" type="text/css" href="/css1/style.css">
+<body>
+	<header>
+		<h1>以下の予定を追加しますか？</h1>
+	</header>
+	<main>
+		<form action="/detail/complete" method="post">
+		<h2>
+			[[${username}]]さん<br>
+			<input type="hidden" name="username" th:value="${username}">
+			<input type="date" name="plandate" th:min="${plandate}" th:value="${plandate}">の予定
+		</h2>
+		<table border="1">
+			<tr>
+				<th>開始</th><th>終了</th><th>目的</th><th>場所</th>
+			</tr>
+			<tr th:each="t : ${timetables}">
+				<td>
+					<input type="time" min="00：00" max="23：59" th:value="${t.starttime}" readonly>
+				</td>
+				<td>
+					<input type="time" min="00：00" max="23：59" th:value="${t.finishtime}" readonly>
+				</td>
+				<td>
+					<input type="text" th:value="${t.action}">
+				</td>
+				<td>
+					<input type="text" th:value="${t.place}">
+				</td>
+			</tr>
+		</table>
+		     <input type="submit" value="追加">
+		</form>
+		<form action="/detail/replan" method="post">
+			<input type="submit" value="戻る">
+		</form>
+	</main>
+</body>
+</html>

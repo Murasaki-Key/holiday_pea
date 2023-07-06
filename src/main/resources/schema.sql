@@ -3,6 +3,9 @@
 DROP TABLE IF EXISTS account;
 DROP TABLE IF EXISTS eat;
 DROP TABLE IF EXISTS act;
+DROP TABLE IF EXISTS timetable;
+DROP TABLE IF EXISTS timetablelist;
+DROP TABLE IF EXISTS mypage;
 
 CREATE TABLE account(
   id SERIAL PRIMARY KEY,
@@ -25,4 +28,23 @@ CREATE TABLE act(
   weatherid INTEGER,
   seasonid INTEGER,
   name TEXT
+);
+
+CREATE TABLE timetable(
+  id SERIAL PRIMARY KEY,
+  username TEXT,
+  planid INTEGER,
+  starttime TEXT,
+  finishtime TEXT,
+  action TEXT,
+  place TEXT,
+  plandate TEXT
+);
+
+CREATE TABLE timetablelist(
+  id SERIAL PRIMARY KEY,
+  starttime TEXT,
+  finishtime TEXT,
+  action TEXT,
+  place TEXT
 );

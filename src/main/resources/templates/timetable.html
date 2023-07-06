@@ -16,62 +16,69 @@
 	</style>
 </head>
 <link rel="stylesheet" type="text/css" href="/css1/style.css">
-
 <body>
 	<header>
-		<h1>ようこそ、[[${@user.name}]]さん</h1>
 	</header>
 	<main>
-		<form action="/plan" method="post">
-				季節を教えてください
-				<br>
-				<input type="radio" name="season" value="1" checked>春
-				<input type="radio" name="season" value="2">夏
-				<input type="radio" name="season" value="3">秋
-				<input type="radio" name="season" value="4">冬
-				<br>
-				天気を教えてください
-				<br>
-				<input type="radio" name="weather" value="1" checked>晴れ
-				<input type="radio" name="weather" value="2">雨
-				<br>
-				何で移動しますか？
-				<br>
-				<input type="radio" name="vehicle" value="1" checked>電車
-				<input type="radio" name="vehicle" value="2">車
-				<br>
-				何が食べたいですか？
-				<br>
-				<select name="food">
-					<option value="8" selected>おまかせ</option>
-					<option value="1">肉料理</option>
-					<option value="2">魚料理</option>
-					<option value="3">野菜料理</option>
-					<option value="4">日本料理</option>
-					<option value="5">中華</option>
-					<option value="6">洋食</option>
-					<option value="7">異国料理</option>
-				</select>
-				<br>
-				何がしたいですか？
-				<br>
-				<select name="act">
-					<option value="10" selected>おまかせ</option>
-					<option value="1">買い物</option>
-					<option value="2">カルチャー</option>
-					<option value="3">遊び</option>
-					<option value="4">運動</option>
-					<option value="5">ものづくり</option>
-					<option value="6">動物</option>
-					<option value="7">自然/風景</option>
-					<option value="8">散策</option>
-					<option value="9">リラックス</option>
-				</select>
-				<br>
-				<button>予定を生成する</button>
-			
+		<table border="1">
+			<tr>
+				<th>開始</th><th>終了</th><th>目的</th><th>場所</th><th>更新</th><th>削除</th>
+			</tr>
+			<tr th:each="t : ${timetables}">
+				<form th:action="|/detail/${t.id}/edit|" method="post">
+				<td>
+					<input type="time"  name="starttime" min="00：00" max="23：59" th:value="${t.starttime}">
+				</td>
+				<td>
+					<input type="time" name="finishtime" min="00：00" max="23：59" th:value="${t.finishtime}">
+				</td>
+				<td>
+					<input type="text" name="action" th:value="${t.action}">
+				</td>
+				<td>
+					<input type="text" name="place" th:value="${t.place}">
+				</td>
+				<td>
+					<input type="hidden"  name="id" th:value="${t.id}">
+					<input type="submit" value="更新">
+				</td>
+				</form>
+				<td>
+					<form th:action="|/detail/${t.id}/delete|" method="post">
+						<input type="hidden"  name="id" th:value="${t.id}">
+						<input type="submit" value="削除">
+					</form>
+				</td>
+			</tr>
+		</table>
+		<br>
+		<table>
+		<form action="/detail/add" method="post">
+			<tr>
+				<th>開始</th><th>終了</th><th>目的</th><th>場所</th><th></th>
+			</tr>
+				<td>
+					<input type="time"  name="starttime" min="00：00" max="23：59">
+				</td>
+				<td>
+					<input type="time" name="finishtime" min="00：00" max="23：59">
+				</td>
+				<td>
+					<input type="text" name="action">
+				</td>
+				<td>
+					<input type="text" name="place">
+				</td>
+				<td>
+					<input type="submit" value="行程追加">
+				</td>
 		</form>
+		</table>	
+	
 	</main>
+	<br>
+	<form action="/detail/confirm" method="post">
+	<input type="submit" value="確定">
+	</form>
 </body>
-
 </html>
