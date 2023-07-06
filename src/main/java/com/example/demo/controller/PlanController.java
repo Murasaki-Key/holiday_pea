@@ -14,6 +14,7 @@ import com.example.demo.entity.Eat;
 import com.example.demo.model.User;
 import com.example.demo.repository.ActRepository;
 import com.example.demo.repository.EatRepository;
+import com.example.demo.repository.TimeTableListRepository;
 
 import jakarta.servlet.http.HttpSession;
 
@@ -30,6 +31,9 @@ public class PlanController {
 	
 	@Autowired
 	ActRepository actRepository;
+	
+	@Autowired
+	TimeTableListRepository timetablelistRepository;
 
 	@PostMapping("/plan")
 	public String plan(
@@ -139,7 +143,11 @@ public class PlanController {
 	}
 	
 	@PostMapping("/replan")
-	public String replan() {
+	public String replan(Model m) {
+		String username = users.getName();
+		m.addAttribute("username",username);
+		timetablelistRepository.deleteAll();
+		
 		return "form";
 	}
 			

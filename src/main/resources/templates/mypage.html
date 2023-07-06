@@ -40,13 +40,16 @@
 		<h1>[[${username}]]さんの休日</h1>
 	</header>
 	<main>
-		<th:block th:each="t,ti : ${timetable}">
+		<th:block th:if="${timetable}" th:each="t,ti : ${timetable}">
 			[[${ti.count}]] .
 			<a th:href="|/myplan/${t.planid}|">
 				<input type="hidden" name="planid" th:value="${t.planid}">
 				[[${t.plandate}]]
 			</a>
 			<br>
+		</th:block>
+		<th:block th:if="${emp} == 1">
+			<h2>予定を登録しましょう！</h2>
 		</th:block>
 	</main>
 </body>
