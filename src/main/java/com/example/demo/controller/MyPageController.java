@@ -33,7 +33,11 @@ public class MyPageController {
 		
 		List <TimeTable> timetable = timetableRepository.decidePlanid(username);
 		m.addAttribute("timetable",timetable);
-		
+		Integer emp = 2;
+		if(timetable.isEmpty()) {
+			emp = 1;
+		}
+		m.addAttribute("emp",emp);
 		return "mypage";
 	}
 	

@@ -1,5 +1,6 @@
 package com.example.demo.controller;
 
+import java.sql.Time;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.List;
@@ -75,16 +76,17 @@ public class TimeTableController {
 	@PostMapping("/detail/{id}/edit")
 	public String edit(
 			@PathVariable("id") Integer id,
-			@RequestParam(name="starttime",defaultValue="") String starttime ,
-			@RequestParam(name="finishtime",defaultValue="") String finishtime ,
+			@RequestParam(name="starttime",defaultValue="") Time starttime ,
+			@RequestParam(name="finishtime",defaultValue="") Time finishtime ,
 			@RequestParam(name="action",defaultValue="") String action ,
 			@RequestParam(name="place",defaultValue="") String place ,
 			Model m
 			) {
+			
+		String s = starttime.toString(); 
+		String f = finishtime.toString();
 		
-		//SimpleDateFormat sdf = new SimpleDateFormat("HH:mm");
-		
-		TimeTableList timetablelist = new TimeTableList(id,starttime,finishtime,action,place);
+		TimeTableList timetablelist = new TimeTableList(id,s,f,action,place);
 		timetablelistRepository.save(timetablelist);
 		
 		List <TimeTableList> timetables = timetablelistRepository.findAll1();
