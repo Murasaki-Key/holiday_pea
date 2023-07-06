@@ -15,37 +15,43 @@
 		}
 	</style>
 </head>
-<link rel="stylesheet" type="text/css" href="/css1/style.css">
+<link rel="stylesheet" type="text/css" href="/css1/timetable.css">
+
 <body>
 	<header>
 	</header>
 	<main>
 		<table border="1">
 			<tr>
-				<th>開始</th><th>終了</th><th>目的</th><th>場所</th><th>更新</th><th>削除</th>
+				<th>開始</th>
+				<th>終了</th>
+				<th>目的</th>
+				<th>場所</th>
+				<th>更新</th>
+				<th>削除</th>
 			</tr>
 			<tr th:each="t : ${timetables}">
 				<form th:action="|/detail/${t.id}/edit|" method="post">
-				<td>
-					<input type="time"  name="starttime" min="00：00" max="23：59" th:value="${t.starttime}">
-				</td>
-				<td>
-					<input type="time" name="finishtime" min="00：00" max="23：59" th:value="${t.finishtime}">
-				</td>
-				<td>
-					<input type="text" name="action" th:value="${t.action}">
-				</td>
-				<td>
-					<input type="text" name="place" th:value="${t.place}">
-				</td>
-				<td>
-					<input type="hidden"  name="id" th:value="${t.id}">
-					<input type="submit" value="更新">
-				</td>
+					<td>
+						<input type="time" name="starttime" min="00：00" max="23：59" th:value="${t.starttime}">
+					</td>
+					<td>
+						<input type="time" name="finishtime" min="00：00" max="23：59" th:value="${t.finishtime}">
+					</td>
+					<td>
+						<input type="text" name="action" th:value="${t.action}">
+					</td>
+					<td>
+						<input type="text" name="place" th:value="${t.place}">
+					</td>
+					<td>
+						<input type="hidden" name="id" th:value="${t.id}">
+						<input type="submit" value="更新">
+					</td>
 				</form>
 				<td>
 					<form th:action="|/detail/${t.id}/delete|" method="post">
-						<input type="hidden"  name="id" th:value="${t.id}">
+						<input type="hidden" name="id" th:value="${t.id}">
 						<input type="submit" value="削除">
 					</form>
 				</td>
@@ -53,12 +59,16 @@
 		</table>
 		<br>
 		<table>
-		<form action="/detail/add" method="post">
-			<tr>
-				<th>開始</th><th>終了</th><th>目的</th><th>場所</th><th></th>
-			</tr>
+			<form action="/detail/add" method="post">
+				<tr>
+					<th>開始</th>
+					<th>終了</th>
+					<th>目的</th>
+					<th>場所</th>
+					<th></th>
+				</tr>
 				<td>
-					<input type="time"  name="starttime" min="00：00" max="23：59">
+					<input type="time" name="starttime" min="00：00" max="23：59">
 				</td>
 				<td>
 					<input type="time" name="finishtime" min="00：00" max="23：59">
@@ -72,13 +82,19 @@
 				<td>
 					<input type="submit" value="行程追加">
 				</td>
-		</form>
-		</table>	
-	
+			</form>
+		</table>
+
 	</main>
 	<br>
-	<form action="/detail/confirm" method="post">
-	<input type="submit" value="確定">
+	<form action="/detail/confirm" method="post" name="kkk">
+		<a href="javascript: kkk.submit();" class="tbtn tbtn-svg" value="ログイン">
+			<svg>
+				<rect x="2" y="2" rx="0" fill="none" width=170 height="35"></rect>
+			</svg>
+			<span style="font-size: 62.5%">確定</span>
+		</a>
 	</form>
 </body>
+
 </html>

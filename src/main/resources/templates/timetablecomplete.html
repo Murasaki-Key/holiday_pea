@@ -15,20 +15,33 @@
 		}
 	</style>
 </head>
-<link rel="stylesheet" type="text/css" href="/css1/style.css">
+<link rel="stylesheet" type="text/css" href="/css1/timetable.css">
+
 <body>
 	<header>
 		<h1>完了</h1>
 	</header>
 	<main>
 		<h2>
-			<form action="/myplan" method="post">
-				<input type="submit" value="マイページへ">
+			<form action="/myplan" method="post" name="zzz">
+				<a href="javascript: zzz.submit();" class="tbtn tbtn-svg">
+					<svg>
+						<rect x="2" y="2" rx="0" fill="none" width=170 height="35"></rect>
+					</svg>
+					<span style="font-size: 62.5%">マイページへ</span>
+				</a>
 			</form>
-			<form action="/replan" method=post >
-				<input type="submit" value="もう一度予定を生成する">
+			
+			<form action="/replan" method=post name="mmm">
+				<a href="javascript: mmm.submit();" class="tbtn tbtn-svg">
+					<svg>
+						<rect x="2" y="2" rx="0" fill="none" width=170 height="35"></rect>
+					</svg>
+					<span style="font-size: 62.5%">再度予定を生成する</span>
+				</a>
 			</form>
 		</h2>
 	</main>
 </body>
+
 </html>
