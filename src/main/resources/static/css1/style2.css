@@ -1,0 +1,9 @@
+/* 表線 */
+table,
+th,
+td {
+	border-collapse: collapse;
+	width: 600px;
+	height: 40px;
+	text-align: center;
+}
