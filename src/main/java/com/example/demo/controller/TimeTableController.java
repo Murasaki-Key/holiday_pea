@@ -82,14 +82,18 @@ public class TimeTableController {
 			Model m
 			) {
 		
-		Integer s = Integer.parseInt(starttime.substring(0, 2) + starttime.substring(3, 5));
-		Integer f = Integer.parseInt(finishtime.substring(0, 2) + finishtime.substring(3, 5));
-		
-		if((s - f) > 0) {
+		if(starttime.isBlank() == true || finishtime.isBlank() == true) {
 			List <TimeTableList> timetables = timetablelistRepository.findAll1();
 			m.addAttribute("timetables",timetables);
 			return "timetable";
 		}
+			Integer s = Integer.parseInt(starttime.substring(0, 2) + starttime.substring(3, 5));
+			Integer f = Integer.parseInt(finishtime.substring(0, 2) + finishtime.substring(3, 5));
+			if((s - f) > 0) {
+				List <TimeTableList> timetables = timetablelistRepository.findAll1();
+				m.addAttribute("timetables",timetables);
+				return "timetable";
+			}
 		
 		TimeTableList timetablelist = new TimeTableList(id,starttime,finishtime,action,place);
 		timetablelistRepository.save(timetablelist);
