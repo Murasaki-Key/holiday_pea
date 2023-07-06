@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.example.demo.entity.Account;
 import com.example.demo.model.User;
 import com.example.demo.repository.AccountRepository;
+import com.example.demo.repository.TimeTableListRepository;
 
 import jakarta.servlet.http.HttpSession;
 
@@ -26,6 +27,9 @@ public class AccountController {
 
 	@Autowired
 	AccountRepository accountRepository;
+	
+	@Autowired
+	TimeTableListRepository timetablelistRepository;
 
 	// ログイン画面を表示
 	@GetMapping("/login")
@@ -146,6 +150,14 @@ public class AccountController {
 		model.addAttribute("account", account);
 		accountRepository.save(account);
 		
+			return "login";
+		
+	}
+	
+	@PostMapping("/logout")
+	public String logout(){
+		session.invalidate();
+		timetablelistRepository.deleteAll();
 			return "login";
 		
 	}

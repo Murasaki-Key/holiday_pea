@@ -82,7 +82,14 @@ public class TimeTableController {
 			Model m
 			) {
 		
-		//SimpleDateFormat sdf = new SimpleDateFormat("HH:mm");
+		Integer s = Integer.parseInt(starttime.substring(0, 2) + starttime.substring(3, 5));
+		Integer f = Integer.parseInt(finishtime.substring(0, 2) + finishtime.substring(3, 5));
+		
+		if((s - f) > 0) {
+			List <TimeTableList> timetables = timetablelistRepository.findAll1();
+			m.addAttribute("timetables",timetables);
+			return "timetable";
+		}
 		
 		TimeTableList timetablelist = new TimeTableList(id,starttime,finishtime,action,place);
 		timetablelistRepository.save(timetablelist);
@@ -100,6 +107,18 @@ public class TimeTableController {
 			@RequestParam(name="action",defaultValue="") String action ,
 			@RequestParam(name="place",defaultValue="") String place ,
 			Model m) {
+			
+			if(starttime.isBlank() == false || finishtime.isBlank() == false) {
+				Integer s = Integer.parseInt(starttime.substring(0, 2) + starttime.substring(3, 5));
+				Integer f = Integer.parseInt(finishtime.substring(0, 2) + finishtime.substring(3, 5));
+				if((s - f) > 0) {
+					List <TimeTableList> timetables = timetablelistRepository.findAll1();
+					m.addAttribute("timetables",timetables);
+					return "timetable";
+				}
+			}
+			
+		
 		
 		TimeTableList timetablelist = new TimeTableList(starttime,finishtime,action,place);
 		timetablelistRepository.save(timetablelist);
