@@ -1,6 +1,25 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-
+<link rel="stylesheet" type="text/css" href="/css1/header.css">
+<div id="ppp">
+  <ul class="menu">
+    <li>
+		<form method="post" action="/replan">
+		<button>予定の生成</button>
+		</form>
+    </li>
+    <li>
+    	<form method="post" action="/myplan">
+		<button>マイページ</button>
+		</form>
+	</li>
+	<li>
+    	<form method="post" action="/logout">
+		<button>ログアウト</button>
+		</form>
+	</li>
+  </ul>
+</div>
 <head>
 	<meta charset="UTF-8">
 	<title>holiday</title>

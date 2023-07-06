@@ -1,0 +1,26 @@
+
+@import url("https://fonts.googleapis.com/css?family=Varela+Round");
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+  margin: 0;
+  letter-spacing: 1.1px;
+}
+
+ul li {
+	 display: inline-block;
+	 margin: 25px;
+	 margin-top: 2px;
+	 margin-bottom: 2px;
+}
+
+#ppp{
+	position: absolute;
+	top:2px;
+	left: 465px;
+}
+
+  :hover a {
+    color: #d94f5c;
+  }
