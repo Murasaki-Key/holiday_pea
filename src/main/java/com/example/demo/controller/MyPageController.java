@@ -5,6 +5,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.example.demo.entity.TimeTable;
@@ -33,6 +35,18 @@ public class MyPageController {
 		m.addAttribute("timetable",timetable);
 		
 		return "mypage";
+	}
+	
+	@GetMapping("/myplan/{planid}")
+	public String myplans(
+			@PathVariable("planid") Integer planid,
+			Model m) {
+		String username = users.getName();
+		
+		List <TimeTable> timetable = timetableRepository.find02(username, planid);
+		
+		m.addAttribute("timetable",timetable);
+		return "mypagelist";
 	}
 			
 }

@@ -18,17 +18,25 @@
 <link rel="stylesheet" type="text/css" href="/css1/style.css">
 <body>
 	<header>
-		<h1>[[${username}]]さんの休日</h1>
+		<h1></h1>
 	</header>
 	<main>
-		<th:block th:each="t,ti : ${timetable}">
-			[[${ti.count}]] .
-			<a th:href="|/myplan/${t.planid}|" method="get">
-				<input type="hidden" name="planid" th:value="${t.planid}">
-				[[${t.plandate}]]
-			</a>
-			<br>
-		</th:block>
+		<table border="1">
+			<tr th:each="t:${timetable}">
+				<td>
+					[[${t.starttime}]]
+				</td>
+				<td>
+					[[${t.finishtime}]]
+				</td>
+				<td>
+					[[${t.action}]]
+				</td>
+				<td>
+					[[${t.place}]]
+				</td>
+			</tr>
+		</table>
 	</main>
 </body>
 </html>
