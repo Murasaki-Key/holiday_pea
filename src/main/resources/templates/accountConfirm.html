@@ -18,7 +18,7 @@
 </head>
 <link rel="stylesheet" type="text/css" href="/css1/style.css">
 <main>
-	<form action="/account/finish" method="post">
+	<form action="/account/finish" method="post" name="yyy">
 		<input type="hidden" name="name" th:value="${account.name}">
 		<input type="hidden" name="password" th:value="${account.password}">
 
@@ -41,13 +41,23 @@
 			</tr>
 
 		</table>
-		<input type="submit" value="確認">
+		<a href="javascript: yyy.submit();" class="tbtn tbtn-svg">
+				<svg>
+					<rect x="2" y="2" rx="0" fill="none"  width=170 height="35"></rect>
+				</svg>
+				<span style="font-size: 62.5%">確認</span>
+			</a>
 	</form>
 
-	<form action="/account" method="get">
+	<form action="/account" method="get" name="zzz">
 		<input type="hidden" name="name" th:value="${account.name}">
 		<input type="hidden" name="password" th:value="${account.password}">
-		<input type="submit" value="戻る">
+		<a href="javascript: zzz.submit();" class="tbtn tbtn-svg">
+				<svg>
+					<rect x="2" y="2" rx="0" fill="none"  width=170 height="35"></rect>
+				</svg>
+				<span style="font-size: 62.5%">戻る</span>
+			</a>
 	</form>
 </main>
 

@@ -79,27 +79,49 @@
 			</th:block>
 		<br>
 		<br>
-		<form method=get action="http://www.google.co.jp/search"  target="_blank">
+		<form method=get action="http://www.google.co.jp/search"  target="_blank" name="ooo">
 			<input type=text style="border: 2px solid #0a0;" name=q size=31 maxlength=255 th:value="${eatplan} + '　' + '都内'">
 			<br>
-			<br>
-			<input type=submit name=btnG value="検索">
+			<a href="javascript: ooo.submit();" class="tbtn tbtn-svg">
+				<svg>
+					<rect x="2" y="2" rx="0" fill="none" width=170 height="35"></rect>
+				</svg>
+				<span style="font-size: 62.5%">検索</span>
+			</a>
 		</form>
+		
 		<br>
 		<form method=get action="http://www.google.co.jp/search"  target="_blank">
 			<input type=text style="border: 2px solid #0a0;" name=q size=31 maxlength=255 th:value="${actplan} + '　' + '都内'">
 			<br>
 			<br>
-			<input type=submit name=btnG value="検索">
+			<a href="javascript: rrr.submit();" class="tbtn tbtn-svg">
+				<svg>
+					<rect x="2" y="2" rx="0" fill="none" width=170 height="35"></rect>
+				</svg>
+				<span style="font-size: 62.5%">検索</span>
+			</a>
 		</form>
+		
 		<br>
-		<form method=post action="/replan">
-			<input type=submit value="もう一度予定を生成する">
+		<form method=post action="/replan" name="qqq">
+			<a href="javascript: qqq.submit();" class="tbtn tbtn-svg">
+				<svg>
+					<rect x="2" y="2" rx="0" fill="none" width=170 height="35"></rect>
+				</svg>
+				<span style="font-size: 62.5%">再度予定を生成する</span>
+			</a>
 		</form>
-		<form method=get action="/detail">
+		
+		<form method=get action="/detail" name="rrr">
 			<input type="hidden" name="eatplan" th:value="${eatplan}">
 			<input type="hidden" name="actplan" th:value="${actplan}">
-			<input type=submit value="詳細な計画を立てる">
+			<a href="javascript: rrr.submit();" class="tbtn tbtn-svg">
+				<svg>
+					<rect x="2" y="2" rx="0" fill="none" width=170 height="35"></rect>
+				</svg>
+				<span style="font-size: 62.5%">詳細な計画を立てる</span>
+			</a>
 		</form>
 	</main>
 </body>

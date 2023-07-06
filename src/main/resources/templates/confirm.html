@@ -1,65 +1,85 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head>
-<meta charset="UTF-8">
-<title>holiday</title>
 
-<style>
-			body {
-				display: flex;
-				flex-direction: column;
-				align-items: center;
-				justify-content: center;
-				height: 120vh;
-				text-align: center;
-			}
-		</style>
+<head>
+	<meta charset="UTF-8">
+	<title>holiday</title>
+
+	<style>
+		body {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			height: 120vh;
+			text-align: center;
+		}
+	</style>
 </head>
-<link rel="stylesheet" type="text/css" href="/css1/style.css"><body>
+<link rel="stylesheet" type="text/css" href="/css1/style.css">
+
+<body>
 	<header>
-		<h1 style="color: #ffffc1";>予定</h1>
+		<h1 style="color: #ffffc1" ;>予定</h1>
 	</header>
 	<main>
-	<form action="/result" method="post">
-		<input type="hidden" name="season"  th:value="${season}">
-		<input type="hidden" name="weather" th:value="${weather}">
-		<input type="hidden" name="vehicle" th:value="${vehicle}">
-		<input type="hidden" name="eatplan" th:value="${eatplan}">
-		<input type="hidden" name="actplan" th:value="${actplan}">
-		季節:
-		<th:block th:if="${season} == 1">春</th:block>
-		<th:block th:if="${season} == 2">夏</th:block>
-		<th:block th:if="${season} == 3">秋</th:block>
-		<th:block th:if="${season} == 4">冬</th:block>
+		<form action="/result" method="post" name="hhh">
+			<input type="hidden" name="season" th:value="${season}">
+			<input type="hidden" name="weather" th:value="${weather}">
+			<input type="hidden" name="vehicle" th:value="${vehicle}">
+			<input type="hidden" name="eatplan" th:value="${eatplan}">
+			<input type="hidden" name="actplan" th:value="${actplan}">
+			季節:
+			<th:block th:if="${season} == 1">春</th:block>
+			<th:block th:if="${season} == 2">夏</th:block>
+			<th:block th:if="${season} == 3">秋</th:block>
+			<th:block th:if="${season} == 4">冬</th:block>
+			<br>
+			天気:
+			<th:block th:if="${weather} == 1">晴れ</th:block>
+			<th:block th:if="${weather} == 2">雨</th:block>
+			<br>
+			移動:
+			<th:block th:if="${vehicle} == 1">電車</th:block>
+			<th:block th:if="${vehicle} == 2">車</th:block>
+			<br>
+			食事:[[${eatplan}]]
+			<br>
+			行動:[[${actplan}]]
+			<br>
+			<br>
+			<a href="javascript: hhh.submit();" class="tbtn tbtn-svg">
+				<svg>
+					<rect x="2" y="2" rx="0" fill="none" width=170 height="35"></rect>
+				</svg>
+				<span style="font-size: 62.5%">Let's planning!</span>
+			</a>
+		</form>
 		<br>
-		天気:
-		<th:block th:if="${weather} == 1">晴れ</th:block>
-		<th:block th:if="${weather} == 2">雨</th:block>
+		<form action="/plan" method="post" name="iii">
+			<input type="hidden" name="season" th:value="${season}">
+			<input type="hidden" name="weather" th:value="${weather}">
+			<input type="hidden" name="vehicle" th:value="${vehicle}">
+			<input type="hidden" name="food" th:value="${food}">
+			<input type="hidden" name="act" th:value="${act}">
+
+			<a href="javascript: iii.submit();" class="tbtn tbtn-svg">
+				<svg>
+					<rect x="2" y="2" rx="0" fill="none" width=170 height="35"></rect>
+				</svg>
+				<span style="font-size: 62.5%">同じ条件でもう一度</span>
+			</a>
+		</form>
 		<br>
-		移動:
-		<th:block th:if="${vehicle} == 1">電車</th:block>
-		<th:block th:if="${vehicle} == 2">車</th:block>
-		<br>
-		食事:[[${eatplan}]]
-		<br>
-		行動:[[${actplan}]]
-		<br>
-		<br>
-		<input type="submit" value="決定">
-	</form>
-	<br>
-	<form action="/plan" method="post">
-		<input type="hidden" name="season"  th:value="${season}">
-		<input type="hidden" name="weather" th:value="${weather}">
-		<input type="hidden" name="vehicle" th:value="${vehicle}">
-		<input type="hidden" name="food"  th:value="${food}">
-		<input type="hidden" name="act"  th:value="${act}">
-		<input type="submit" value="同じ条件でもう一度">
-	</form>
-	<br>
-	<form action="/replan" method="post">
-		<input type="submit" value="条件を設定しなおす">
-	</form>
+		<form action="/replan" method="post" name="jjj">
+			<a href="javascript: jjj.submit();" class="tbtn tbtn-svg">
+				<svg>
+					<rect x="2" y="2" rx="0" fill="none" width=170 height="35"></rect>
+				</svg>
+				<span style="font-size: 62.5%">条件を設定しなおす</span>
+			</a>
+		</form>
 	</main>
 </body>
+
 </html>
