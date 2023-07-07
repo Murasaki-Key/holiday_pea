@@ -119,11 +119,11 @@
 		</form>
 		
 		<br>
-		<form method=get action="http://www.google.co.jp/search"  target="_blank">
+		<form method=get action="http://www.google.co.jp/search"  target="_blank" name="www">
 			<input type=text style="border: 2px solid #0a0;" name=q size=31 maxlength=255 th:value="${actplan} + '　' + '都内'" class="AAA">
 			<br>
 			<br>
-			<a href="javascript: rrr.submit();" class="tbtn tbtn-svg">
+			<a href="javascript: www.submit();" class="tbtn tbtn-svg">
 				<svg>
 					<rect x="2" y="2" rx="0" fill="none" width=170 height="35"></rect>
 				</svg>
@@ -141,10 +141,10 @@
 			</a>
 		</form>
 		
-		<form method=get action="/detail" name="rrr">
+		<form method=get action="/detail" name="ttt">
 			<input type="hidden" name="eatplan" th:value="${eatplan}">
 			<input type="hidden" name="actplan" th:value="${actplan}">
-			<a href="javascript: rrr.submit();" class="tbtn tbtn-svg">
+			<a href="javascript: ttt.submit();" class="tbtn tbtn-svg">
 				<svg>
 					<rect x="2" y="2" rx="0" fill="none" width=170 height="35"></rect>
 				</svg>
